@@ -17,15 +17,42 @@ class UserManager
         try {
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password) VALUES (:pseudo, :mail, :password)");
+            $stmt = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password, created_at) VALUES (:pseudo, :mail, :password, :created_at)");
 
             $status = $stmt->execute([
                 ":pseudo" => $pseudo,
                 ":mail" => $mail,
-                ":password" => $hashed_password
+                ":password" => $hashed_password,
+                ":created_at" => date('Y-m-d')
             ]);
 
-            if ($status) {
+            if (!$status) {
+                throw new Exception();
+            }
+
+            $user = $this->getByMail($mail);
+            return $user;
+        } catch (Exception $e) {
+            throw new Exception();
+        }
+    }
+
+    public function update(int $userId, string $pseudo, string $mail, string $password): User
+    {
+
+        try {
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+            $stmt = $this->pdo->prepare("UPDATE users SET pseudo=:pseudo, mail=:mail, password=:password WHERE id=:userId");
+
+            $status = $stmt->execute([
+                ":pseudo" => $pseudo,
+                ":mail" => $mail,
+                ":password" => $hashed_password,
+                ":userId" => $userId
+            ]);
+
+            if (!$status) {
                 throw new Exception();
             }
 

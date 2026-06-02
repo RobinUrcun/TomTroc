@@ -44,25 +44,37 @@ class MyAccountController
 
                 $title = "Mon compte";
                 require_once(__DIR__ . "/../Views/my_account.php");
+                return;
             }
 
             $isMailUnique = FormValidation::IsMailUnique($mail);
             $isPseudoUnique = FormValidation::IsPseudoUnique($pseudo);
 
-            if (!$isMailUnique) {
+            if (($user->getMail() !== $mail) && !$isMailUnique) {
                 $inputErrorManager->setMailError("Adresse email déjà utilisée");
             }
-            if (!$isPseudoUnique) {
+            if (($user->getPseudo() !== $pseudo) && !$isPseudoUnique) {
                 $inputErrorManager->setPseudoError("Pseudo déjà utilisé");
             }
 
-            if (!$isMailUnique || !$isPseudoUnique) {
+            if ((($user->getMail() !== $mail) && !$isMailUnique) || (($user->getPseudo() !== $pseudo) && !$isPseudoUnique)) {
                 $title = "Mon compte";
                 $previousPseudo = $pseudo;
                 $previousMail = $mail;
                 require_once(__DIR__ . "../../Views/my_account.php");
                 return;
             }
+
+            try {
+                $userManager = new UserManager();
+                $user = $userManager->update($user->getId(), $pseudo, $mail, $password);
+            } catch (Exception $e) {
+                Redirect::to("404");
+                return;
+            }
+
+            SessionService::setUser($user);
+            Redirect::to("mon_compte");
         }
     }
 }
