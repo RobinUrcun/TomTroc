@@ -30,7 +30,7 @@ class FormValidation
         }
     }
 
-    public static function IsMailUnique(string $mail, ?int $id = null): bool
+    public static function IsMailUnique(string $mail): bool
     {
         $userManager = new UserManager();
         try {
