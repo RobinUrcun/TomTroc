@@ -1,0 +1,64 @@
+<?php
+
+class User
+{
+
+    private string $id;
+    private string $pseudo;
+    private string $mail;
+    private string $password;
+    private DateTime $created_at;
+
+
+    public function __construct() {}
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail)
+    {
+        $this->mail = $mail;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(DateTime $created_at)
+    {
+        $this->created_at = $created_at;
+    }
+}

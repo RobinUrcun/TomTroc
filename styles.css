@@ -1,0 +1,737 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* HEADER */
+header {
+  padding: 8px 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f3ef;
+}
+
+header .header_first_part {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 70px;
+}
+
+header .header_first_part .header_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+header .logo_with_title {
+  font-family: "Playfair Display", serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: #00ac66;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+header .logo_with_title .logo_with_title {
+  width: 53px;
+  height: 53px;
+}
+
+header .header_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  a {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+header .header_second_part {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+header .header_second_part a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+  gap: 5px;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+header .header_second_part a .counter_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 40%;
+}
+
+header .header_second_part a .counter_wrapper p {
+  margin: 0;
+}
+header .header_second_part a .icon {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+/* CARD */
+
+.card {
+  width: 200px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 24px #00000003;
+}
+
+.card .card_content {
+  width: 100%;
+  background-color: white;
+  padding: 16px 12px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card .card_content .card_title {
+  margin: 0;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+.card .card_content .card_author {
+  margin: 0;
+  color: #a6a6a6;
+  font-size: 14px;
+}
+
+.card .card_content .card_sold_by {
+  margin: 14px 0 0 0;
+  color: #a6a6a6;
+  font-size: 10px;
+}
+
+/* BUTTON */
+
+.main_button {
+  border: none;
+  background-color: #00ac66;
+  padding: 22px 40px;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.main_button:hover {
+  background-color: #006d41;
+}
+
+.main_button.reverse_button {
+  background-color: unset;
+  border: 1px solid #00ac66;
+  color: #00ac66;
+}
+
+/* HOME PAGE */
+
+.homepage_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 78px 290px;
+  gap: 95px;
+  background-color: #f5f3ef;
+}
+
+.homepage_section .homepage_figure {
+  margin: 0 20px 0 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+.homepage_section .homepage_figcaption {
+  margin-top: 10px;
+  margin-right: 5px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  color: #a6a6a6;
+  text-align: end;
+}
+
+.homepage_section .homepage_img {
+  width: 400px;
+  height: auto;
+}
+
+.homepage_section .homepage_title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.786);
+}
+
+.homepage_section .homepage_description {
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  color: black;
+  box-sizing: content-box;
+  margin-bottom: 55px;
+}
+
+.our_last_books_add_section {
+  padding: 60px 265px;
+  background-color: #faf9f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.our_last_books_add_section .our_last_books_add_title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 80px;
+  color: rgba(0, 0, 0, 0.786);
+}
+
+.our_last_books_add_section_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.our_last_books_add_section .main_button {
+  margin-top: 45px;
+}
+
+.how_it_work_section {
+  padding: 60px 235px 80px;
+  background-color: #f5f3ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.how_it_work_section .how_it_work_title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.786);
+}
+
+.how_it_work_section .how_it_work_description {
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  box-sizing: content-box;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+.how_it_work_section .how_it_work_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 40px;
+}
+
+.how_it_work_section .how_it_work_wrapper .how_it_work_card {
+  padding: 30px 20px;
+  background-color: white;
+  max-width: 210px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.how_it_work_section .main_button {
+  margin-top: 50px;
+}
+
+/* HOMEPAGE BANNER */
+
+.homepage_banner {
+  height: 230px;
+  width: 100%;
+  background-image: url("./Public/Assets/Home/home_page_banner.jpg");
+  background-size: cover;
+}
+
+/* OUR_VALUES SECTION */
+
+.our_values_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #faf9f7;
+  padding: 70px;
+}
+
+.our_values_section .our_values_wrapper {
+  max-width: 390px;
+}
+
+.our_values_section .our_values_title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin: 0 0 30px 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.786);
+}
+
+.our_values_section p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+/* OUR_BOOKS PAGE */
+
+.our_books_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 105px 265px;
+  background-color: #faf9f7;
+  gap: 50px;
+}
+
+.our_books_section .hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.our_books_section .hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.786);
+}
+
+.our_books_section .hero .search_form {
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  height: 50px;
+  width: 320px;
+}
+
+.our_books_section .hero .search_form input {
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  background-color: unset;
+  height: 30px;
+  flex-grow: 1;
+}
+
+.our_books_section .hero .search_form input::placeholder {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #a6a6a6;
+}
+
+.our_books_section .hero .search_form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: unset;
+  padding-left: 10px;
+}
+
+.our_books_section .display_all_books {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+/* AUTH PAGES */
+
+.auth_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  background-color: #faf9f7;
+}
+
+.auth_section .auth_form_wrapper {
+  width: 50%;
+  padding-left: 150px;
+  padding-top: 130px;
+}
+.auth_section .auth_form_wrapper h1 {
+  font-size: 36px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin: 0 0 55px;
+}
+
+.auth_section .auth_banner_wrapper {
+  width: 50%;
+  max-height: 880px;
+}
+
+.auth_section .auth_banner_wrapper .auth_banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.auth_section .auth_form_wrapper .auth_form {
+  max-width: 320px;
+}
+
+.auth_section .auth_form_wrapper .auth_input_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.auth_section .auth_form_wrapper .auth_input_wrapper label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #a6a6a6;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.auth_section .auth_form_wrapper .auth_input_wrapper input {
+  height: 50px;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 5px;
+}
+
+.auth_section .auth_form_wrapper .auth_input_wrapper .error {
+  border: 2px solid red !important;
+}
+
+.auth_section .auth_form_wrapper .auth_input_wrapper .auth_input_error_message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: red;
+}
+
+.auth_section .auth_form_wrapper .auth_section_failed_login {
+  margin-bottom: 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: red;
+}
+
+.auth_section .auth_form_wrapper button {
+  width: 100%;
+}
+
+.auth_section .auth_form_wrapper .auth_no_account_link {
+  margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #292929;
+}
+
+.auth_section .auth_form_wrapper .auth_no_account_link a {
+  color: #292929;
+}
+
+/* MY ACCOUNT */
+
+.my_account_section {
+  background-color: #faf9f7;
+  padding: 90px 150px;
+}
+
+.my_account_section .my_account_section_title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.786);
+  margin: 0 0 50px;
+}
+
+.my_account_section .my_account_section_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+.my_account_section_wrapper .my_account_section_resume,
+.my_account_section_wrapper .my_account_section_form {
+  background-color: white;
+  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my_account_section .my_account_section_wrapper .my_account_section_resume {
+  padding: 50px 20px 95px;
+}
+
+.my_account_section .my_account_section_avatar_wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 135px;
+  height: 135px;
+}
+
+.my_account_section .my_account_section_avatar_wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.my_account_section .my_account_section_resume .update_avatar button {
+  border: none;
+  margin-top: 5px;
+  background-color: unset;
+  font-family: "Inter", sans-serif;
+  color: #a6a6a6;
+  text-decoration: underline;
+}
+
+.my_account_section .my_account_section_resume .separator {
+  width: 100%;
+  max-width: 250px;
+  height: 1px;
+  background-color: #f5f3ef;
+  margin: 50px auto;
+}
+
+.my_account_section
+  .my_account_section_resume
+  .my_account_section_user_info_wrapper
+  .pseudo {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 24px;
+  margin: 0 auto 10px;
+  font-weight: 400;
+  color: #292929;
+}
+
+.my_account_section
+  .my_account_section_resume
+  .my_account_section_user_info_wrapper
+  .user_registered_since {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 14px;
+  color: #a6a6a6;
+  font-weight: 300;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.my_account_section
+  .my_account_section_resume
+  .my_account_section_user_info_wrapper
+  .library {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #292929;
+  margin-bottom: 6px;
+}
+
+.my_account_section
+  .my_account_section_resume
+  .my_account_section_user_info_wrapper
+  .books_count_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 3px;
+  flex-wrap: nowrap;
+}
+
+.my_account_section
+  .my_account_section_resume
+  .my_account_section_user_info_wrapper
+  .books_count {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #292929;
+}
+
+.my_account_section .my_account_section_wrapper .my_account_section_form {
+  padding: 40px 20px;
+}
+
+.my_account_section
+  .my_account_section_wrapper
+  .my_account_section_form
+  .update_user_info {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.my_account_section
+  .my_account_section_wrapper
+  .my_account_section_form
+  .my_account_section_subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+  color: #292929;
+}
+
+.my_account_section_wrapper .my_account_section_form .auth_input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.my_account_section_wrapper .my_account_section_form .auth_input_wrapper label {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: #a6a6a6;
+}
+
+.my_account_section_wrapper .my_account_section_form .auth_input_wrapper input {
+  height: 50px;
+  border-radius: 6px;
+  background-color: #edf2f6;
+  padding: 0 15px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #292929;
+  font-weight: 300;
+}
+
+.my_account_section .my_account_section_form .auth_input_wrapper .error {
+  border: 2px solid red !important;
+}
+
+.my_account_section .my_account_section_form .auth_input_error_message {
+  display: none;
+  margin-top: 5px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: red;
+}
+
+.my_account_section .my_account_section_form .auth_input_error_message.active {
+  display: block;
+}
+
+.my_account_section .my_account_section_form .auth_section_failed_login {
+  margin-bottom: 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: red;
+}
+
+.my_account_section_wrapper .my_account_section_form .main_button {
+  width: fit-content;
+  background-color: #f5f3ef;
+  color: #00ac66;
+  border: 1px solid #00ac66;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  gap: 40px;
+  padding: 22px 50px;
+  a {
+    color: #292929;
+    text-decoration: none;
+  }
+  img {
+    width: 22px;
+    height: 18px;
+  }
+}
