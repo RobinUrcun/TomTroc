@@ -11,7 +11,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             <div class="my_account_section_avatar_wrapper">
                 <img src="./Public/Assets/to_delete/plat-1.jpeg" alt="">
             </div>
-            <form class="update_avatar" action="">
+            <form class="update_avatar" action="/index.php?page=upload_user_avatar">
                 <button>modifier</button>
             </form>
             <div class="separator"></div>
@@ -62,3 +62,170 @@ include_once(__DIR__ . "/../Layout/header.php");
         </div>
     </div>
 </section>
+
+<section class="my_book_section">
+    <div class="my_book_section_wrapper">
+        <div class="array_header">
+            <div class="array_header_box">
+                <p>PHOTO</p>
+            </div>
+            <div class="array_header_box">
+                <p>TITRE</p>
+            </div>
+            <div class="array_header_box">
+                <p>AUTHEUR</p>
+            </div>
+            <div class="array_header_box">
+                <p>DESCRIPTION</p>
+            </div>
+            <div class="array_header_box">
+                <p>DISPONIBILITÉ</p>
+            </div>
+            <div class="array_header_box">
+                <p>ACTION</p>
+            </div>
+        </div>
+        <div class="array_row">
+            <div class="array_row_box">
+                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
+            </div>
+            <div class="array_row_box">
+                <p class="title">The Kinkfolk Table</p>
+            </div>
+            <div class="array_row_box">
+                <p class="author">Nathan Williams</p>
+            </div>
+            <div class="array_row_box">
+                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
+            </div>
+            <div class="array_row_box">
+                <div class="chips">disponible</div>
+            </div>
+            <div class="array_row_box">
+                <div class="array_row_box_action">
+                    <form class="edit" action="">
+                        <button>Éditer</button>
+                    </form>
+                    <form class="delete" action="">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="array_row">
+            <div class="array_row_box">
+                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
+            </div>
+            <div class="array_row_box">
+                <p class="title">The Kinkfolk Table</p>
+            </div>
+            <div class="array_row_box">
+                <p class="author">Nathan Williams</p>
+            </div>
+            <div class="array_row_box">
+                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
+            </div>
+            <div class="array_row_box">
+                <div class="chips">disponible</div>
+            </div>
+            <div class="array_row_box">
+                <div class="array_row_box_action">
+                    <form class="edit" action="">
+                        <button>Éditer</button>
+                    </form>
+                    <form class="delete" action="">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="array_row">
+            <div class="array_row_box">
+                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
+            </div>
+            <div class="array_row_box">
+                <p class="title">The Kinkfolk Table</p>
+            </div>
+            <div class="array_row_box">
+                <p class="author">Nathan Williams</p>
+            </div>
+            <div class="array_row_box">
+                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
+            </div>
+            <div class="array_row_box">
+                <div class="chips">disponible</div>
+            </div>
+            <div class="array_row_box">
+                <div class="array_row_box_action">
+                    <form class="edit" action="">
+                        <button>Éditer</button>
+                    </form>
+                    <form class="delete" action="">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="array_row">
+            <div class="array_row_box">
+                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
+            </div>
+            <div class="array_row_box">
+                <p class="title">The Kinkfolk Table</p>
+            </div>
+            <div class="array_row_box">
+                <p class="author">Nathan Williams</p>
+            </div>
+            <div class="array_row_box">
+                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
+            </div>
+            <div class="array_row_box">
+                <div class="chips">disponible</div>
+            </div>
+            <div class="array_row_box">
+                <div class="array_row_box_action">
+                    <form class="edit" action="">
+                        <button>Éditer</button>
+                    </form>
+                    <form class="delete" action="">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="array_row">
+            <div class="array_row_box">
+                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
+            </div>
+            <div class="array_row_box">
+                <p class="title">The Kinkfolk Table</p>
+            </div>
+            <div class="array_row_box">
+                <p class="author">Nathan Williams</p>
+            </div>
+            <div class="array_row_box">
+                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
+            </div>
+            <div class="array_row_box">
+                <div class="chips">disponible</div>
+            </div>
+            <div class="array_row_box">
+                <div class="array_row_box_action">
+                    <form class="edit" action="">
+                        <button>Éditer</button>
+                    </form>
+                    <form class="delete" action="">
+                        <button>Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<?php
+
+include_once(__DIR__ . "/../Layout/footer.php");
+
+?>
