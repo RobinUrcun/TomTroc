@@ -30,7 +30,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             </div>
         </div>
         <div class="my_account_section_form">
-            <form class="update_user_info" action="" method="POST">
+            <form class="update_user_info" action="/TomTroc/index.php?page=mon_compte&action=editUserInformations" method="POST">
                 <h2 class="my_account_section_subtitle">Vos informations personnelles</h2>
                 <div class="auth_input_wrapper">
                     <label for="mail">Adresse email</label>

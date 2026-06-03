@@ -43,8 +43,22 @@ class Router
 
             case "mon_compte":
                 $myAccountController = new MyAccountController();
-                $myAccountController->handle();
+
+
+                if ($this->method === "GET") {
+                    $myAccountController->getMyAccountPage();
+                } elseif ($this->method === "POST") {
+
+                    if (isset($_GET['action']) && $_GET['action'] === 'editUserInformations') {
+
+                        $myAccountController->editUserInformation();
+                    } elseif (isset($_POST['action']) && $_POST['action'] === 'editUserAvatar') {
+                    }
+                }
                 break;
+
+            case "upload_user_avatar":
+
 
             case "deconnexion":
 
