@@ -3,7 +3,7 @@
 class OurBookController
 {
 
-    public function handle()
+    public function getOurBookPage()
     {
         $user = AuthServices::getAuthenticatedUser();
 

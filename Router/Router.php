@@ -24,7 +24,7 @@ class Router
             case "nos_livres":
 
                 $controller = new OurBookController();
-                $controller->handle();
+                $controller->getOurBookPage();
                 break;
 
             case "connexion":
