@@ -3,8 +3,7 @@
 
 class HomeController
 {
-
-    public function handle()
+    public function getHomePage()
     {
         $title = "Acceuil";
 

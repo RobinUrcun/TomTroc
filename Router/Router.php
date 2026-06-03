@@ -18,7 +18,7 @@ class Router
             case "accueil":
 
                 $controller = new HomeController();
-                $controller->handle();
+                $controller->getHomePage();
                 break;
 
             case "nos_livres":
