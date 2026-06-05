@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title><?= $title ?? "TomTroc"; ?></title>
+    <script src="./Js/index.js"></script>
+    <script src="" />
 </head>
 
 <body>
