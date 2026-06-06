@@ -38,7 +38,7 @@ class UserManager
         }
     }
 
-    public function update(int $userId, string $pseudo, string $mail, string $password): User
+    public function updateUserInformation(int $userId, string $pseudo, string $mail, string $password): User
     {
 
         try {
@@ -63,6 +63,8 @@ class UserManager
             throw new Exception();
         }
     }
+
+    public function updateUserAvatar(int $userId, string $avatarFileName) {}
 
     public function getById(int $id): User
     {

@@ -52,40 +52,8 @@ class FormValidation
         }
     }
 
-    public static function isFileSizeCorrect(array $file): bool
+    public static function isFileSizeCorrect(int $fileSize): bool
     {
-        return $file["size"] > 5242880;
-    }
-
-    public static function isFileAnImage(array $file): bool
-    {
-
-        if (!isset($file["tmp_name"])) {
-            return false;
-        }
-
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        var_dump($finfo);
-
-        $mimeType = finfo_file($finfo, $file["tmp_name"]);
-
-        $mappingFileMimeType = [
-            "image/jpeg" => "jpg",
-            "image/png"  => "png",
-            "image/webp" => "webp",
-        ];
-
-        if (!isset($mappingFileMimeType[$mimeType])) {
-            return false;
-        }
-
-
-
-        // if (!$mimeType) {
-        //     return false;
-        // }
-
-        // $mappingMimeType = [];
-        return true;
+        return $fileSize > 5242880;
     }
 }

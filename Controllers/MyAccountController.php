@@ -2,11 +2,12 @@
 
 class MyAccountController
 {
-    private User $user;
+    private ?User $user;
 
     public function __construct()
     {
         $this->user = AuthServices::getAuthenticatedUser();
+
         if (!$this->user) {
             Redirect::to("connexion");
         }
@@ -74,7 +75,7 @@ class MyAccountController
 
         try {
             $userManager = new UserManager();
-            $user = $userManager->update($user->getId(), $pseudo, $mail, $password);
+            $user = $userManager->updateUserInformation($user->getId(), $pseudo, $mail, $password);
         } catch (Exception $e) {
             Redirect::to("404");
             return;
@@ -82,5 +83,56 @@ class MyAccountController
 
         SessionService::setUser($user);
         Redirect::to("mon_compte");
+    }
+
+    public function editUserAvatar()
+    {
+        $file = isset($_FILES["avatar"]) ? $_FILES["avatar"] : null;
+
+        if (!$file) {
+            $inputErrorManager = new InputErrorManager();
+            $inputErrorManager->setFileError("Aucun fichier");
+            $title = "Mon compte";
+            require_once(__DIR__ . "../../Views/my_account.php");
+            return;
+        }
+
+        try {
+            $fileManager = new FileManager($file);
+        } catch (Error $e) {
+            $inputErrorManager = new InputErrorManager();
+            $inputErrorManager->setFileError($e->getMessage());
+            $title = "Mon compte";
+            require_once(__DIR__ . "../../Views/my_account.php");
+            return;
+        }
+
+        if (!FormValidation::isFileSizeCorrect($fileManager->size)) {
+            $inputErrorManager = new InputErrorManager();
+            $inputErrorManager->setFileError("La taille du fichier ne doit pas exceder 5 Mo");
+            $title = "Mon compte";
+            require_once(__DIR__ . "../../Views/my_account.php");
+            return;
+        }
+
+        $mappingFileMimeType = [
+            "image/jpeg" => "jpg",
+            "image/png"  => "png",
+            "image/webp" => "webp",
+        ];
+
+        if (!isset($mappingFileMimeType[$mimeType])) {
+            $inputErrorManager = new InputErrorManager();
+            $inputErrorManager->setFileError("le fichier doit etre du type png ou jpeg ou webp");
+            $title = "Mon compte";
+            require_once(__DIR__ . "../../Views/my_account.php");
+            return;
+        }
+
+        $fileName = $this->user->getPseudo() . $this->user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
+
+        move_uploaded_file($_FILES["avatar"]["tmp_name"], __DIR__ . "/../Public/Uploads/" . $fileName);
+
+        $userManager = new UserManager();
     }
 }
