@@ -32,9 +32,9 @@ class FormValidation
 
     public static function IsMailUnique(string $mail): bool
     {
-        $userManager = new UserManager();
+        $userRepository = new UserRepository();
         try {
-            $user = $userManager->getByMail($mail);
+            $user = $userRepository->getByMail($mail);
             return false;
         } catch (Exception $e) {
             return true;
@@ -43,9 +43,9 @@ class FormValidation
 
     public static function IsPseudoUnique(string $pseudo): bool
     {
-        $userManager = new UserManager();
+        $userRepository = new UserRepository();
         try {
-            $user = $userManager->getByPseudo($pseudo);
+            $user = $userRepository->getByPseudo($pseudo);
             return false;
         } catch (Exception $e) {
             return true;

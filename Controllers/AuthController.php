@@ -128,8 +128,8 @@ class AuthController
             }
 
             try {
-                $userManager = new UserManager();
-                $user = $userManager->create($pseudo, $mail, $password);
+                $userRepository = new UserRepository();
+                $user = $userRepository->create($pseudo, $mail, $password);
             } catch (Exception $e) {
                 Redirect::to("404");
                 return;

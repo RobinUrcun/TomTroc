@@ -7,6 +7,8 @@ spl_autoload_register(function ($class) {
         __DIR__ . '/Controllers/',
         __DIR__ . '/Services/',
         __DIR__ . '/Utils/',
+        __DIR__ . '/Repositories/',
+
     ];
 
     foreach ($directories as $directory) {

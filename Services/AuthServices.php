@@ -6,10 +6,10 @@ class AuthServices
     public function verifyCredentials(string $mail, string $password): User
     {
 
-        $userManager = new UserManager();
+        $userRepository = new UserRepository();
 
         try {
-            $user = $userManager->getByMail($mail);
+            $user = $userRepository->getByMail($mail);
         } catch (Exception $e) {
 
             throw new Exception();
@@ -32,9 +32,9 @@ class AuthServices
             return null;
         }
 
-        $userManager = new UserManager();
+        $userRepository = new UserRepository();
 
-        $user = $userManager->getById($userId);
+        $user = $userRepository->getById($userId);
 
         if (!$user) {
             return null;

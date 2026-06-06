@@ -74,8 +74,8 @@ class MyAccountController
         }
 
         try {
-            $userManager = new UserManager();
-            $user = $userManager->updateUserInformation($user->getId(), $pseudo, $mail, $password);
+            $userRepository = new UserRepository();
+            $user = $userRepository->updateUserInformation($user->getId(), $pseudo, $mail, $password);
         } catch (Exception $e) {
             Redirect::to("404");
             return;
@@ -137,10 +137,10 @@ class MyAccountController
 
         move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/Avatars/" . $fileName);
 
-        $userManager = new UserManager();
+        $userRepository = new UserRepository();
         try {
 
-            $userManager->updateUserAvatar($user->getId(), $fileName);
+            $userRepository->updateUserAvatar($user->getId(), $fileName);
         } catch (Error $e) {
             Redirect::to("404");
             return;
