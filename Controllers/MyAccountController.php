@@ -121,7 +121,7 @@ class MyAccountController
             "image/webp" => "webp",
         ];
 
-        if (!isset($mappingFileMimeType[$mimeType])) {
+        if (!isset($mappingFileMimeType[$fileManager->mimeType])) {
             $inputErrorManager = new InputErrorManager();
             $inputErrorManager->setFileError("le fichier doit etre du type png ou jpeg ou webp");
             $title = "Mon compte";
@@ -131,8 +131,17 @@ class MyAccountController
 
         $fileName = $this->user->getPseudo() . $this->user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
 
-        move_uploaded_file($_FILES["avatar"]["tmp_name"], __DIR__ . "/../Public/Uploads/" . $fileName);
+        move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/" . $fileName);
 
         $userManager = new UserManager();
+        try {
+
+            $userManager->updateUserAvatar($this->user->getId(), $fileName);
+        } catch (Error $e) {
+            Redirect::to("404");
+            return;
+        }
+
+        Redirect::to("mon_compte");
     }
 }
