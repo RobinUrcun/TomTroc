@@ -82,6 +82,8 @@ class UserManager
         $user->setPseudo($result["pseudo"]);
         $user->setMail($result["mail"]);
         $user->setPassword($result["password"]);
+        $user->setAvatarFileName($result["avatar_file_name"]);
+        $user->setCreatedAt(new DateTime($result["created_at"]));
 
         return $user;
     }
@@ -104,7 +106,8 @@ class UserManager
         $user->setPseudo($result["pseudo"]);
         $user->setMail($result["mail"]);
         $user->setPassword($result["password"]);
-
+        $user->setAvatarFileName($result["avatar_file_name"]);
+        $user->setCreatedAt(new DateTime($result["created_at"]));
         return $user;
     }
 
@@ -126,7 +129,8 @@ class UserManager
         $user->setPseudo($result["pseudo"]);
         $user->setMail($result["mail"]);
         $user->setPassword($result["password"]);
-
+        $user->setAvatarFileName($result["avatar_file_name"]);
+        $user->setCreatedAt(new DateTime($result["created_at"]));
         return $user;
     }
 }
