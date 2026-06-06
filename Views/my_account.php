@@ -9,20 +9,18 @@ include_once(__DIR__ . "/../Layout/header.php");
     <div class="my_account_section_wrapper">
         <div class="my_account_section_resume">
 
-            <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" name="avatar" id="upload_avatar_form">
-                <div class="my_account_section_avatar_wrapper">
-                    <img src="./Public/Uploads/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
-                    <input type="file"
-                        name="avatar"
-                        class="upload_avatar_input"
-                        id="upload_avatar_input">
-                </div>
-                <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isFileError ? 'active' : ''  ?>">
-                    <?= isset($inputErrorManager) ? $inputErrorManager->fileErrorMessage : null  ?>
-                </div>
+            <img src="./Public/Uploads/Avatars/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
 
-                <button>modifier</button>
+            <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" name="avatar" id="upload_avatar_form">
+                <label for="upload_avatar_input">modifier</label>
+                <input type="file"
+                    name="avatar"
+                    class="upload_avatar_input"
+                    id="upload_avatar_input">
             </form>
+            <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isFileError ? 'active' : ''  ?>">
+                <?= isset($inputErrorManager) ? $inputErrorManager->fileErrorMessage : null  ?>
+            </div>
 
             <div class="separator"></div>
             <div class="my_account_section_user_info_wrapper">
