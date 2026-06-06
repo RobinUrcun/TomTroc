@@ -324,7 +324,7 @@ header .header_second_part a .icon {
   padding: 70px;
 }
 
-.our_values_section .our_values_wrapper {
+.our_values_section .our_values_wrapper p {
   max-width: 390px;
 }
 
@@ -341,6 +341,22 @@ header .header_second_part a .icon {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: 0.5px;
+}
+
+.signature_wrapper {
+  display: flex;
+  margin-top: 25px;
+  flex-direction: row;
+  gap: 200px;
+}
+
+.signature_wrapper .signature {
+  margin-top: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-style: Italic;
+  font-size: 12px;
+  color: #a6a6a6;
 }
 
 /* OUR_BOOKS PAGE */
@@ -559,7 +575,10 @@ header .header_second_part a .icon {
   align-items: center;
 }
 
-.my_account_section .my_account_section_wrapper .my_account_section_resume img {
+.my_account_section
+  .my_account_section_wrapper
+  .my_account_section_resume
+  .avatar_img {
   border-radius: 50%;
   overflow: hidden;
   width: 135px;
@@ -586,19 +605,6 @@ header .header_second_part a .icon {
   display: none;
 }
 
-/* .my_account_section .my_account_section_avatar_wrapper {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 135px;
-  height: 135px;
-}
-
-.my_account_section .my_account_section_avatar_wrapper img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-*/
 .my_account_section .my_account_section_resume .update_avatar_form button {
   border: none;
   margin-top: 5px;
@@ -673,6 +679,12 @@ header .header_second_part a .icon {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #292929;
+}
+
+.my_account_section .my_account_section_resume .books_count_wrapper img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
 }
 
 .my_account_section .my_account_section_wrapper .my_account_section_form {

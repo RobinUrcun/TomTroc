@@ -103,6 +103,9 @@ include_once(__DIR__ . "/../Layout/header.php");
             Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.
         </p>
         </p>
+        <div class="signature_wrapper">
+            <p class="signature">L’équipe Tom Troc</p> <img src="./Public/Assets/Icons/heart.svg" alt="">
+        </div>
     </div>
 </section>
 
