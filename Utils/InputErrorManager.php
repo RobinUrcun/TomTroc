@@ -15,6 +15,9 @@ class InputErrorManager
 
     public bool $isInvalidCredentials = false;
 
+    public bool $isFileError = false;
+    public string $fileErrorMessage = "";
+
     public function setMailError(string $message)
     {
         $this->isMailError = true;
@@ -31,5 +34,11 @@ class InputErrorManager
     {
         $this->isPasswordError = true;
         $this->passwordErrorMessage = $message;
+    }
+
+    public function setFileError(string $message)
+    {
+        $this->isFileError = true;
+        $this->fileErrorMessage = $message;
     }
 }
