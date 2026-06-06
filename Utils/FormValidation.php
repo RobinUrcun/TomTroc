@@ -54,6 +54,6 @@ class FormValidation
 
     public static function isFileSizeCorrect(int $fileSize): bool
     {
-        return $fileSize > 5242880;
+        return $fileSize < 5242880;
     }
 }
