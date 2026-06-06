@@ -17,12 +17,13 @@ class UserManager
         try {
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password, created_at) VALUES (:pseudo, :mail, :password, :created_at)");
+            $stmt = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password, avatar_file_name, created_at) VALUES (:pseudo, :mail, :password, :avatar_file_name, :created_at)");
 
             $status = $stmt->execute([
                 ":pseudo" => $pseudo,
                 ":mail" => $mail,
                 ":password" => $hashed_password,
+                ":avatar_file_name" => "default_user_avatar.webp",
                 ":created_at" => date('Y-m-d')
             ]);
 
