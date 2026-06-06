@@ -133,6 +133,8 @@ class MyAccountController
 
         $fileName = $user->getPseudo() . $user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
 
+        unlink(__DIR__ . "/../Public/Uploads/" . $user->getAvatarFileName());
+
         move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/" . $fileName);
 
         $userManager = new UserManager();
