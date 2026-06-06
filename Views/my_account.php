@@ -17,6 +17,9 @@ include_once(__DIR__ . "/../Layout/header.php");
                         class="upload_avatar_input"
                         id="upload_avatar_input">
                 </div>
+                <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isFileError ? 'active' : ''  ?>">
+                    <?= isset($inputErrorManager) ? $inputErrorManager->fileErrorMessage : null  ?>
+                </div>
 
                 <button>modifier</button>
             </form>

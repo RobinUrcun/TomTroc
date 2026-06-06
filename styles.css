@@ -724,11 +724,11 @@ header .header_second_part a .icon {
   font-weight: 300;
 }
 
-.my_account_section .my_account_section_form .auth_input_wrapper .error {
+.my_account_section .auth_input_wrapper .error {
   border: 2px solid red !important;
 }
 
-.my_account_section .my_account_section_form .auth_input_error_message {
+.my_account_section .auth_input_error_message {
   display: none;
   margin-top: 5px;
   font-family: "Inter", sans-serif;
@@ -736,7 +736,7 @@ header .header_second_part a .icon {
   color: red;
 }
 
-.my_account_section .my_account_section_form .auth_input_error_message.active {
+.my_account_section .auth_input_error_message.active {
   display: block;
 }
 
