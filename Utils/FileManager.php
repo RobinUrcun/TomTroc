@@ -14,7 +14,6 @@ class FileManager
         }
 
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        var_dump($finfo);
 
         $this->mimeType = finfo_file($finfo, $file["tmp_name"]);
         $this->size = $file["size"];
