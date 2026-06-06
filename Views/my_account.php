@@ -8,12 +8,20 @@ include_once(__DIR__ . "/../Layout/header.php");
     <h1 class="my_account_section_title">Mon compte</h1>
     <div class="my_account_section_wrapper">
         <div class="my_account_section_resume">
-            <div class="my_account_section_avatar_wrapper">
-                <img src="./Public/Assets/to_delete/plat-1.jpeg" alt="">
-            </div>
-            <form class="update_avatar" action="/index.php?page=upload_user_avatar">
+
+            <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" name="avatar" id="upload_avatar_form">
+                >
+                <div class="my_account_section_avatar_wrapper">
+                    <img src="./Public/Assets/to_delete/plat-1.jpeg" alt="">
+                    <input type="file"
+                        name="avatar"
+                        class="upload_avatar_input"
+                        id="upload_avatar_input">
+                </div>
+
                 <button>modifier</button>
             </form>
+
             <div class="separator"></div>
             <div class="my_account_section_user_info_wrapper">
                 <p class="pseudo"><?= isset($user) ? $user->getPseudo() : "" ?></p>
@@ -223,6 +231,9 @@ include_once(__DIR__ . "/../Layout/header.php");
     </div>
 
 </section>
+
+<script src="./Js/index.js"></script>
+
 
 <?php
 
