@@ -29,16 +29,26 @@ class Router
 
             case "connexion":
 
-                $authController = new AuthController();
-                $authController->login();
 
+                $authController = new AuthController();
+
+                if ($this->method === "GET") {
+                    $authController->getLoginPage();
+                } elseif ($this->method === "POST") {
+                    $authController->login();
+                }
                 break;
 
 
             case "inscription":
 
                 $authController = new AuthController();
-                $authController->signup();
+
+                if ($this->method === "GET") {
+                    $authController->getSignUpPage();
+                } elseif ($this->method === "POST") {
+                    $authController->signUp();
+                }
                 break;
 
             case "mon_compte":
@@ -56,7 +66,11 @@ class Router
                 }
                 break;
 
-            case "upload_user_avatar":
+            case "ajouter_un_livre":
+                if ($this->method === "GET") {
+                    // $myAccountController->getMyAccountPage();
+                } elseif ($this->method === "POST") {
+                }
 
 
             case "deconnexion":
