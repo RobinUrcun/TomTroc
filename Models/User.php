@@ -7,6 +7,7 @@ class User
     private string $pseudo;
     private string $mail;
     private string $password;
+    private string $avatar_file_name;
     private DateTime $created_at;
 
 
@@ -50,6 +51,16 @@ class User
     public function setPassword(string $password)
     {
         $this->password = $password;
+    }
+
+    public function getAvatarFileName()
+    {
+        return $this->avatar_file_name;
+    }
+
+    public function setAvatarFileName(string $avatar_file_name)
+    {
+        $this->avatar_file_name = $avatar_file_name;
     }
 
     public function getCreatedAt()
