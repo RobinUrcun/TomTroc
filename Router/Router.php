@@ -67,10 +67,14 @@ class Router
                 break;
 
             case "ajouter_un_livre":
+
+                $booksManagerController = new BooksManagerController();
                 if ($this->method === "GET") {
-                    // $myAccountController->getMyAccountPage();
+                    $booksManagerController->getCreateBookPage();
                 } elseif ($this->method === "POST") {
                 }
+
+                break;
 
 
             case "deconnexion":
