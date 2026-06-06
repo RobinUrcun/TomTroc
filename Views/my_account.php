@@ -229,7 +229,9 @@ include_once(__DIR__ . "/../Layout/header.php");
             </div>
         </div>
     </div>
-
+    <a href="index.php?page=ajouter_un_livre" class="main_button">
+        Ajouter un livre
+    </a>
 </section>
 
 <script src="./Js/index.js"></script>
