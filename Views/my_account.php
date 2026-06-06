@@ -9,7 +9,7 @@ include_once(__DIR__ . "/../Layout/header.php");
     <div class="my_account_section_wrapper">
         <div class="my_account_section_resume">
 
-            <img src="./Public/Uploads/Avatars/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
+            <img class="avatar_img" src="./Public/Uploads/Avatars/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
 
             <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" name="avatar" id="upload_avatar_form">
                 <label for="upload_avatar_input">modifier</label>
