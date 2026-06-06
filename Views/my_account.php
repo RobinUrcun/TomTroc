@@ -10,9 +10,8 @@ include_once(__DIR__ . "/../Layout/header.php");
         <div class="my_account_section_resume">
 
             <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" name="avatar" id="upload_avatar_form">
-                >
                 <div class="my_account_section_avatar_wrapper">
-                    <img src="./Public/Assets/to_delete/plat-1.jpeg" alt="">
+                    <img src="./Public/Uploads/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
                     <input type="file"
                         name="avatar"
                         class="upload_avatar_input"
