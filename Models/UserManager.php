@@ -64,7 +64,29 @@ class UserManager
         }
     }
 
-    public function updateUserAvatar(int $userId, string $avatarFileName) {}
+    public function updateUserAvatar(int $userId, string $avatarFileName): User
+    {
+
+        try {
+            $stmt = $this->pdo->prepare("UPDATE users SET avatar_file_name=:avatar_file_name WHERE id=:userId");
+
+
+
+            $status = $stmt->execute([
+                ":avatar_file_name" => $avatarFileName,
+                ":userId" => $userId
+            ]);
+
+            if (!$status) {
+                throw new Exception();
+            }
+
+            $user = $this->getById($userId);
+            return $user;
+        } catch (Error $e) {
+            throw new Error();
+        }
+    }
 
     public function getById(int $id): User
     {
