@@ -44,15 +44,14 @@ class Router
             case "mon_compte":
                 $myAccountController = new MyAccountController();
 
-
                 if ($this->method === "GET") {
                     $myAccountController->getMyAccountPage();
                 } elseif ($this->method === "POST") {
-
                     if (isset($_GET['action']) && $_GET['action'] === 'editUserInformations') {
 
                         $myAccountController->editUserInformation();
-                    } elseif (isset($_POST['action']) && $_POST['action'] === 'editUserAvatar') {
+                    } elseif (isset($_GET['action']) && $_GET['action'] === 'editUserAvatar') {
+                        $myAccountController->editUserAvatar();
                     }
                 }
                 break;
