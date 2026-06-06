@@ -89,6 +89,8 @@ class MyAccountController
     {
         $file = isset($_FILES["avatar"]) ? $_FILES["avatar"] : null;
 
+        $user = $this->user;
+
         if (!$file) {
             $inputErrorManager = new InputErrorManager();
             $inputErrorManager->setFileError("Aucun fichier");
@@ -129,14 +131,14 @@ class MyAccountController
             return;
         }
 
-        $fileName = $this->user->getPseudo() . $this->user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
+        $fileName = $user->getPseudo() . $user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
 
         move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/" . $fileName);
 
         $userManager = new UserManager();
         try {
 
-            $userManager->updateUserAvatar($this->user->getId(), $fileName);
+            $userManager->updateUserAvatar($user->getId(), $fileName);
         } catch (Error $e) {
             Redirect::to("404");
             return;
