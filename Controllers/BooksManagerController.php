@@ -28,7 +28,7 @@ class BooksManagerController
 
     public function create()
     {
-        $title = isset($_POST["title"]) ? $_POST["title"] : null;
+        $bookTitle = isset($_POST["title"]) ? $_POST["title"] : null;
         $author = isset($_POST["author"]) ? $_POST["author"] : null;
         $comment = isset($_POST["comment"]) ? $_POST["comment"] : null;
         $disponibility = isset($_POST["disponibility"]) ? $_POST["disponibility"] : null;
@@ -36,7 +36,7 @@ class BooksManagerController
         $bookErrorManager = new BookErrorManager();
 
         try {
-            FormValidation::isTitleValid($title);
+            FormValidation::isTitleValid($bookTitle);
         } catch (Exception $e) {
             $bookErrorManager->setTitleError($e->getMessage());
         }
@@ -61,7 +61,7 @@ class BooksManagerController
 
         if ($bookErrorManager->isTitleError || $bookErrorManager->isAuthorError || $bookErrorManager->isCommentError || $bookErrorManager->isDisponibilityError) {
             $title = "Ajouter un livre";
-            $previousTitle = $title;
+            $previousTitle = $bookTitle;
             $previousAuthor = $author;
             $previousComment = $comment;
             $previousDisponibility = $disponibility;
