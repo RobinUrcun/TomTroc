@@ -62,6 +62,7 @@ class AuthController
         SessionService::setUser($user);
 
         Redirect::to("accueil");
+        return;
     }
 
     public function getSignUpPage()
@@ -71,7 +72,7 @@ class AuthController
     }
 
     public function signUp()
-    { 
+    {
         $pseudo = isset($_POST["pseudo"]) ? $_POST["pseudo"] : null;
         $mail = isset($_POST["mail"]) ? $_POST["mail"] : null;
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
@@ -129,11 +130,13 @@ class AuthController
 
         SessionService::setUser($user);
         Redirect::to("accueil");
+        return;
     }
 
     public function logout()
     {
         SessionService::deleteUserId();
         Redirect::to("accueil");
+        return;
     }
 }
