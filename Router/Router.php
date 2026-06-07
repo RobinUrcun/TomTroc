@@ -72,6 +72,7 @@ class Router
                 if ($this->method === "GET") {
                     $booksManagerController->getCreateBookPage();
                 } elseif ($this->method === "POST") {
+                    $booksManagerController->create();
                 }
 
                 break;
