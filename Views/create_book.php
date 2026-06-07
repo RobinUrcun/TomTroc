@@ -16,10 +16,16 @@ include_once(__DIR__ . "/../Layout/header.php");
     <div class="form_wrapper">
         <form method="POST" enctype="multipart/form-data" action="./index.php?page=ajouter_un_livre">
             <div class="image_upload_wrapper">
-                <label for="book_image">
+                <label for="book_picture">
                     Photo
                 </label>
-                <input type="file" name="book_picture" id="book_picture">
+                <div class="auth_input_wrapper">
+                    <input type="file" name="book_picture" id="book_picture" class="<?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'error' : ''  ?>">
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->fileErrorMessage : null  ?>
+                    </div>
+                </div>
+
             </div>
             <div class="informations_upload_wrapper">
 

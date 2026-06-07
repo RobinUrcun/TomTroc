@@ -14,6 +14,9 @@ class BookErrorManager
     public bool $isDisponibilityError = false;
     public string $disponibilityErrorMessage = "";
 
+    public bool $isFileError = false;
+    public string $fileErrorMessage = "";
+
     public function setTitleError(string $message)
     {
         $this->isTitleError = true;
@@ -36,5 +39,11 @@ class BookErrorManager
     {
         $this->isDisponibilityError = true;
         $this->disponibilityErrorMessage = $message;
+    }
+
+    public function setFileError(string $message)
+    {
+        $this->isFileError = true;
+        $this->fileErrorMessage = $message;
     }
 }
