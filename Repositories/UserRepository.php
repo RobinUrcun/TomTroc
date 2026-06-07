@@ -70,8 +70,6 @@ class UserRepository
         try {
             $stmt = $this->pdo->prepare("UPDATE users SET avatar_file_name=:avatar_file_name WHERE id=:userId");
 
-
-
             $status = $stmt->execute([
                 ":avatar_file_name" => $avatarFileName,
                 ":userId" => $userId
