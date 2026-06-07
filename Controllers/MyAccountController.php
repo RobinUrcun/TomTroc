@@ -131,7 +131,7 @@ class MyAccountController
             return;
         }
 
-        $fileName = $user->getPseudo() . $user->getId() . "." . $mappingFileMimeType[$fileManager->mimeType];
+        $fileName = uniqid() . "." . $mappingFileMimeType[$fileManager->mimeType];
 
         unlink(__DIR__ . "/../Public/Uploads/Avatars/" . $user->getAvatarFileName());
 
