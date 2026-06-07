@@ -18,8 +18,8 @@ include_once(__DIR__ . "/../Layout/header.php");
                     class="upload_avatar_input"
                     id="upload_avatar_input">
             </form>
-            <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isFileError ? 'active' : ''  ?>">
-                <?= isset($inputErrorManager) ? $inputErrorManager->fileErrorMessage : null  ?>
+            <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isFileError ? 'active' : ''  ?>">
+                <?= isset($accountErrorManager) ? $accountErrorManager->fileErrorMessage : null  ?>
             </div>
 
             <div class="separator"></div>
@@ -42,27 +42,27 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <h2 class="my_account_section_subtitle">Vos informations personnelles</h2>
                 <div class="auth_input_wrapper">
                     <label for="mail">Adresse email</label>
-                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="mail" class="<?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="mail" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
                     <div class="auth_input_error_message">
-                        <?= isset($inputErrorManager) && $inputErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
+                        <?= isset($accountErrorManager) && $accountErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
                     </div>
                 </div>
                 <div class="auth_input_wrapper">
                     <label for="password">Mot de passe</label>
                     <input id="password" name="password"
-                        value="" type="password" class="<?= isset($inputErrorManager) && $inputErrorManager->isPasswordError ? 'error' : '' ?>" />
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isPasswordError ? 'active' : '' ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->passwordErrorMessage : null  ?>
+                        value="" type="password" class="<?= isset($accountErrorManager) && $accountErrorManager->isPasswordError ? 'error' : '' ?>" />
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isPasswordError ? 'active' : '' ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->passwordErrorMessage : null  ?>
                     </div>
                 </div>
                 <div class="auth_input_wrapper">
                     <label for="pseudo">Pseudo</label>
-                    <input id="pseudo" name="pseudo" class="<?= isset($inputErrorManager) && $inputErrorManager->isPseudoError ? 'error' : ''  ?>" value="<?= isset($user) ? $user->getPseudo() : null ?>" />
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isPseudoError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->pseudoErrorMessage : null  ?>
+                    <input id="pseudo" name="pseudo" class="<?= isset($accountErrorManager) && $accountErrorManager->isPseudoError ? 'error' : ''  ?>" value="<?= isset($user) ? $user->getPseudo() : null ?>" />
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isPseudoError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->pseudoErrorMessage : null  ?>
                     </div>
                 </div>
                 <button class="main_button">Enregistrer</button>

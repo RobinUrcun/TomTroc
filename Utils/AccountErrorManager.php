@@ -1,6 +1,6 @@
 <?php
 
-class InputErrorManager
+class AccountErrorManager
 {
     public bool $isMailError = false;
     public ?string $mailErrorMessage = "";

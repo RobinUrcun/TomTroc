@@ -30,25 +30,25 @@ class MyAccountController
         $mail = isset($_POST["mail"]) ? $_POST["mail"] : null;
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
-        $inputErrorManager = new InputErrorManager();
+        $accountErrorManager = new AccountErrorManager();
 
         try {
             FormValidation::isPseudoValid($pseudo);
         } catch (Exception $e) {
-            $inputErrorManager->setPseudoError($e->getMessage());
+            $accountErrorManager->setPseudoError($e->getMessage());
         }
         try {
             FormValidation::isMailValid($mail);
         } catch (Exception $e) {
-            $inputErrorManager->setMailError($e->getMessage());
+            $accountErrorManager->setMailError($e->getMessage());
         }
         try {
             FormValidation::isPasswordValid($password);
         } catch (Exception $e) {
-            $inputErrorManager->setPasswordError($e->getMessage());
+            $accountErrorManager->setPasswordError($e->getMessage());
         }
 
-        if ($inputErrorManager->isMailError || $inputErrorManager->isPasswordError || $inputErrorManager->isPseudoError) {
+        if ($accountErrorManager->isMailError || $accountErrorManager->isPasswordError || $accountErrorManager->isPseudoError) {
 
             $title = "Mon compte";
             require_once(__DIR__ . "/../Views/my_account.php");
@@ -59,10 +59,10 @@ class MyAccountController
         $isPseudoUnique = FormValidation::IsPseudoUnique($pseudo);
 
         if (($user->getMail() !== $mail) && !$isMailUnique) {
-            $inputErrorManager->setMailError("Adresse email déjà utilisée");
+            $accountErrorManager->setMailError("Adresse email déjà utilisée");
         }
         if (($user->getPseudo() !== $pseudo) && !$isPseudoUnique) {
-            $inputErrorManager->setPseudoError("Pseudo déjà utilisé");
+            $accountErrorManager->setPseudoError("Pseudo déjà utilisé");
         }
 
         if ((($user->getMail() !== $mail) && !$isMailUnique) || (($user->getPseudo() !== $pseudo) && !$isPseudoUnique)) {
@@ -92,8 +92,8 @@ class MyAccountController
         $user = $this->user;
 
         if (!$file) {
-            $inputErrorManager = new InputErrorManager();
-            $inputErrorManager->setFileError("Aucun fichier");
+            $accountErrorManager = new AccountErrorManager();
+            $accountErrorManager->setFileError("Aucun fichier");
             $title = "Mon compte";
             require_once(__DIR__ . "../../Views/my_account.php");
             return;
@@ -102,16 +102,16 @@ class MyAccountController
         try {
             $fileManager = new FileManager($file);
         } catch (Error $e) {
-            $inputErrorManager = new InputErrorManager();
-            $inputErrorManager->setFileError($e->getMessage());
+            $accountErrorManager = new AccountErrorManager();
+            $accountErrorManager->setFileError($e->getMessage());
             $title = "Mon compte";
             require_once(__DIR__ . "../../Views/my_account.php");
             return;
         }
 
         if (!FormValidation::isFileSizeCorrect($fileManager->size)) {
-            $inputErrorManager = new InputErrorManager();
-            $inputErrorManager->setFileError("La taille du fichier ne doit pas exceder 5 Mo");
+            $accountErrorManager = new AccountErrorManager();
+            $accountErrorManager->setFileError("La taille du fichier ne doit pas exceder 5 Mo");
             $title = "Mon compte";
             require_once(__DIR__ . "../../Views/my_account.php");
             return;
@@ -124,8 +124,8 @@ class MyAccountController
         ];
 
         if (!isset($mappingFileMimeType[$fileManager->mimeType])) {
-            $inputErrorManager = new InputErrorManager();
-            $inputErrorManager->setFileError("le fichier doit etre du type png ou jpeg ou webp");
+            $accountErrorManager = new AccountErrorManager();
+            $accountErrorManager->setFileError("le fichier doit etre du type png ou jpeg ou webp");
             $title = "Mon compte";
             require_once(__DIR__ . "../../Views/my_account.php");
             return;

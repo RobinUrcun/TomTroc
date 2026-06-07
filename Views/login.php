@@ -9,20 +9,20 @@ require_once(__DIR__ . "../../Layout/header.php");
         <form class="auth_form" action="" method="POST">
             <div class="auth_input_wrapper">
                 <label for="mail">Adresse email</label>
-                <input value="<?= $previousMail ?? null ?>" id="mail" name="mail" type="mail" class="<?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'error' : ''  ?>" />
+                <input value="<?= $previousMail ?? null ?>" id="mail" name="mail" type="mail" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
                 <div class="auth_input_error_message">
-                    <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+                    <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                 </div>
             </div>
             <div class="auth_input_wrapper">
                 <label for="password">Mot de passe</label>
-                <input id="password" name="password" type="password" class="<?= isset($inputErrorManager) && $inputErrorManager->isPasswordError ? 'error' : '' ?>" />
+                <input id="password" name="password" type="password" class="<?= isset($accountErrorManager) && $accountErrorManager->isPasswordError ? 'error' : '' ?>" />
                 <div class="auth_input_error_message">
-                    <?= isset($inputErrorManager) ? $inputErrorManager->passwordErrorMessage : null  ?>
+                    <?= isset($accountErrorManager) ? $accountErrorManager->passwordErrorMessage : null  ?>
                 </div>
             </div>
 
-            <?php if (isset($inputErrorManager) && $inputErrorManager->isInvalidCredentials) : ?>
+            <?php if (isset($accountErrorManager) && $accountErrorManager->isInvalidCredentials) : ?>
                 <div class="auth_section_failed_login">
                     Email ou mot de passe incorrect
                 </div>

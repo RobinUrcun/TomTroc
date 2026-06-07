@@ -25,20 +25,20 @@ class AuthController
         $mail = isset($_POST["mail"]) ? $_POST["mail"] : null;
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
-        $inputErrorManager = new InputErrorManager();
+        $accountErrorManager = new AccountErrorManager();
         try {
             FormValidation::isMailValid($mail);
         } catch (Exception $e) {
-            $inputErrorManager->setMailError($e->getMessage());
+            $accountErrorManager->setMailError($e->getMessage());
         }
 
         try {
             FormValidation::isPasswordValid($password);
         } catch (Exception $e) {
-            $inputErrorManager->setPasswordError($e->getMessage());
+            $accountErrorManager->setPasswordError($e->getMessage());
         }
 
-        if ($inputErrorManager->isMailError || $inputErrorManager->isPasswordError) {
+        if ($accountErrorManager->isMailError || $accountErrorManager->isPasswordError) {
             $title = "Connexion";
             $previousMail = $mail;
 
@@ -53,7 +53,7 @@ class AuthController
 
             $title = "Connexion";
             $previousMail = $mail;
-            $inputErrorManager->isInvalidCredentials = true;
+            $accountErrorManager->isInvalidCredentials = true;
 
             require_once(__DIR__ . "../../Views/login.php");
             return;
@@ -76,24 +76,24 @@ class AuthController
         $mail = isset($_POST["mail"]) ? $_POST["mail"] : null;
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
-        $inputErrorManager = new InputErrorManager();
+        $accountErrorManager = new AccountErrorManager();
         try {
             FormValidation::isPseudoValid($pseudo);
         } catch (Exception $e) {
-            $inputErrorManager->setPseudoError($e->getMessage());
+            $accountErrorManager->setPseudoError($e->getMessage());
         }
         try {
             FormValidation::isMailValid($mail);
         } catch (Exception $e) {
-            $inputErrorManager->setMailError($e->getMessage());
+            $accountErrorManager->setMailError($e->getMessage());
         }
         try {
             FormValidation::isPasswordValid($password);
         } catch (Exception $e) {
-            $inputErrorManager->setPasswordError($e->getMessage());
+            $accountErrorManager->setPasswordError($e->getMessage());
         }
 
-        if ($inputErrorManager->isMailError || $inputErrorManager->isPasswordError || $inputErrorManager->isPseudoError) {
+        if ($accountErrorManager->isMailError || $accountErrorManager->isPasswordError || $accountErrorManager->isPseudoError) {
             $title = "Inscription";
             $previousPseudo = $pseudo;
             $previousMail = $mail;
@@ -105,10 +105,10 @@ class AuthController
         $isPseudoUnique = FormValidation::IsPseudoUnique($pseudo);
 
         if (!$isMailUnique) {
-            $inputErrorManager->setMailError("Adresse email déjà utilisée");
+            $accountErrorManager->setMailError("Adresse email déjà utilisée");
         }
         if (!$isPseudoUnique) {
-            $inputErrorManager->setPseudoError("Pseudo déjà utilisé");
+            $accountErrorManager->setPseudoError("Pseudo déjà utilisé");
         }
 
         if (!$isMailUnique || !$isPseudoUnique) {
