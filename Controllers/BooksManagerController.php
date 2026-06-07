@@ -72,8 +72,6 @@ class BooksManagerController
             }
 
             if (!FormValidation::isFileSizeCorrect($fileManager->size)) {
-
-
                 $bookErrorManager->setFileError("La taille du fichier ne doit pas exceder 5 Mo");
             } else {
                 $mappingFileMimeType = [
@@ -99,5 +97,27 @@ class BooksManagerController
             require_once(__DIR__ . "../../Views/create_book.php");
             return;
         }
+
+        if ($file["tmp_name"]) {
+
+            $fileName = uniqid() . "." . $mappingFileMimeType[$fileManager->mimeType];
+
+            move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/Books/" . $fileName);
+        }
+
+
+        $bookRepository = new BookRepository();
+
+        $fileName = $fileName ?? 'default_book_image.webp';
+
+        try {
+            $bookRepository->create($bookTitle, $author, $comment, $disponibility, $this->user->getId(), $fileName);
+        } catch (Error $e) {
+
+            Redirect::to("404");
+            return;
+        }
+
+        Redirect::to("mon_compte");
     }
 }
