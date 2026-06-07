@@ -904,6 +904,158 @@ header .header_second_part a .icon {
   border-bottom-right-radius: 20px;
 }
 
+/* CREATE BOOK */
+
+.create_book_section {
+  padding: 40px 150px 90px;
+  background-color: #faf9f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.create_book_section .back_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.create_book_section .back_button_wrapper .back_button_icon {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.create_book_section .back_button_wrapper .back_button {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  text-decoration: none;
+  color: #a6a6a6;
+}
+
+.create_book_section h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.784);
+  margin: 0 0 50px;
+}
+
+.create_book_section .form_wrapper {
+  padding: 50px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.create_book_section .form_wrapper form {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.create_book_section .form_wrapper .image_upload_wrapper,
+.create_book_section .form_wrapper .informations_upload_wrapper {
+  flex: 1;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #a6a6a6;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.create_book_section .form_wrapper .image_upload_wrapper label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  display: block;
+
+  color: #a6a6a6;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.create_book_section
+  .form_wrapper
+  .image_upload_wrapper
+  input::file-selector-button {
+  height: 50px;
+  border-radius: 6px;
+  background-color: #edf2f6;
+  padding: 0 15px;
+  border: 1px solid #f0f0f0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #292929;
+  font-weight: 300;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper input {
+  height: 50px;
+  border-radius: 6px;
+  background-color: #edf2f6;
+  padding: 0 15px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #292929;
+  font-weight: 300;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper textarea {
+  height: 350px;
+  border-radius: 6px;
+  background-color: #edf2f6;
+  padding: 15px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #292929;
+  font-weight: 300;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper select {
+  height: 50px;
+  border-radius: 6px;
+  background-color: #edf2f6;
+  padding: 0 15px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #292929;
+  font-weight: 300;
+}
+
+.create_book_section .form_wrapper .auth_input_wrapper .error {
+  border: 2px solid red !important;
+}
+
+.create_book_section
+  .form_wrapper
+  .auth_input_wrapper
+  .auth_input_error_message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: red;
+}
+
+.create_book_section .form_wrapper .main_button {
+  padding: 22px 120px;
+  margin: 15px auto;
+}
+
 /* FOOTER */
 
 .footer {
