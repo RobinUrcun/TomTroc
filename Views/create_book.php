@@ -25,17 +25,17 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="title">Titre</label>
-                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
+                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" value="<?= isset($previousTitle) ? $previousTitle : "" ?>" />
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->titleErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="author">Auteur</label>
-                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
+                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" value="<?= isset($previousAuthor) ? $previousAuthor : "" ?>" />
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->authorErrorMessage : null  ?>
                     </div>
                 </div>
 
@@ -45,20 +45,20 @@ include_once(__DIR__ . "/../Layout/header.php");
 
 Chaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers. 
 
-'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>"></textarea>
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
+'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? $previousComment : "" ?></textarea>
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->commentErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="title">disponibilité</label>
-                    <select name="disponibility" id="disponibility">
-                        <option value="available">Disponible</option>
-                        <option value="unavailable">Non disponible</option>
+                    <select name="disponibility" id="disponibility" class="<?= isset($bookErrorManager) && $bookErrorManager->isDisponibilityError ? 'error' : ''  ?>">
+                        <option <?= isset($previousDisponibility) && ($previousDisponibility === "available") ? "selected" : "" ?> value="available">Disponible</option>
+                        <option <?= isset($previousDisponibility) && ($previousDisponibility === "unavailable") ? "selected" : "" ?> value="unavailable">Non disponible</option>
                     </select>
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isDisponibilityError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->disponibilityErrorMessage : null  ?>
                     </div>
                 </div>
 
