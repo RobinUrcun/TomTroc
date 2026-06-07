@@ -21,7 +21,7 @@ class BooksManagerController
     public function getCreateBookPage()
     {
         $user = $this->user;
-        $tittle = "Ajouter un livre";
+        $title = "Ajouter un livre";
 
         require_once(__DIR__ . "/../Views/create_book.php");
     }
