@@ -84,7 +84,7 @@ class FormValidation
         }
     }
 
-    public static function isDisponibilityValid(?array $disponibility)
+    public static function isDisponibilityValid(?string $disponibility)
     {
 
         $disponibilityMapping = [
