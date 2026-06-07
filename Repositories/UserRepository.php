@@ -7,7 +7,6 @@ class UserRepository
 
     public function __construct()
     {
-
         $this->pdo = (new Database())->getPDO();
     }
 
@@ -24,7 +23,7 @@ class UserRepository
                 ":mail" => $mail,
                 ":password" => $hashed_password,
                 ":avatar_file_name" => "default_user_avatar.webp",
-                ":created_at" => date('Y-m-d')
+                ":created_at" => date('Y-m-d H:i:s')
             ]);
 
             if (!$status) {
