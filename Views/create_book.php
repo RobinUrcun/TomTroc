@@ -14,7 +14,7 @@ include_once(__DIR__ . "/../Layout/header.php");
     <h1>Ajouter un livre</h1>
 
     <div class="form_wrapper">
-        <form method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar">
+        <form method="POST" enctype="multipart/form-data" action="./index.php?page=ajouter_un_livre">
             <div class="image_upload_wrapper">
                 <label for="book_image">
                     Photo
@@ -25,17 +25,17 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="title">Titre</label>
-                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="author">Auteur</label>
-                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
                 </div>
 
@@ -45,9 +45,9 @@ include_once(__DIR__ . "/../Layout/header.php");
 
 Chaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers. 
 
-'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'error' : ''  ?>"></textarea>
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>"></textarea>
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
                 </div>
 
@@ -57,8 +57,8 @@ Chaque page est une invitation à ralentir, à savourer et à créer des souveni
                         <option value="available">Disponible</option>
                         <option value="unavailable">Non disponible</option>
                     </select>
-                    <div class="auth_input_error_message <?= isset($inputErrorManager) && $inputErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($inputErrorManager) ? $inputErrorManager->mailErrorMessage : null  ?>
+                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
+                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
                 </div>
 
