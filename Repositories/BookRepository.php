@@ -31,4 +31,60 @@ class BookRepository
             throw new Exception();
         }
     }
+
+    public function update(string $title, string $author, string $comment, string $disponibility, string $imageFileName, int $bookId)
+    {
+        try {
+            $stmt = $this->pdo->prepare("UPDATE books SET title=:title, author=:author, comment=:comment, disponibility=:disponibility, image_file_name=:image_file_name WHERE id=:book_id");
+
+            $status = $stmt->execute([
+                ":title" => $title,
+                ":author" => $author,
+                ":comment" => $comment,
+                ":disponibility" => $disponibility,
+                ":image_file_name" => $imageFileName,
+                ":book_id" => $bookId
+
+
+            ]);
+
+            if (!$status) {
+                throw new Exception();
+            }
+
+            return;
+        } catch (Exception $e) {
+            throw new Exception();
+        }
+    }
+
+    public function getById(int $id): Book | null
+    {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM books WHERE id=:id;");
+            $stmt->execute([
+                ":id" => $id
+            ]);
+
+            $result = $stmt->fetch();
+
+            if (!$result) {
+                return null;
+            }
+
+            $book = new Book();
+            $book->setId($result["id"]);
+            $book->setTitle($result["title"]);
+            $book->setAuthor($result["author"]);
+            $book->setComment($result["comment"]);
+            $book->setDisponibility($result["disponibility"]);
+            $book->setImageFileName($result["image_file_name"]);
+            $book->setUserId($result["user_id"]);
+            $book->setCreatedAt($result["created_at"]);
+
+            return $book;
+        } catch (Exception $e) {
+            throw new Exception();
+        }
+    }
 }

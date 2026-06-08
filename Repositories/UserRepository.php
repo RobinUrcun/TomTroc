@@ -63,7 +63,7 @@ class UserRepository
         }
     }
 
-    public function updateUserAvatar(int $userId, string $avatarFileName): User
+    public function updateUserAvatar(int $userId, string $avatarFileName)
     {
 
         try {
@@ -77,9 +77,7 @@ class UserRepository
             if (!$status) {
                 throw new Exception();
             }
-
-            $user = $this->getById($userId);
-            return $user;
+            return;
         } catch (Error $e) {
             throw new Error();
         }
