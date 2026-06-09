@@ -104,6 +104,30 @@ class UserRepository
         $user->setAvatarFileName($result["avatar_file_name"]);
         $user->setCreatedAt(new DateTime($result["created_at"]));
 
+        $stmt = $this->pdo->prepare("SELECT * from books WHERE user_id=:user_id;");
+
+        $stmt->execute([":user_id" => $user->getId()]);
+
+        $results = $stmt->fetchAll();
+
+        $books = [];
+
+        foreach ($results as $book) {
+            $userBook = new Book();
+            $userBook->setId($book["id"]);
+            $userBook->setTitle($book["title"]);
+            $userBook->setAuthor($book["author"]);
+            $userBook->setComment($book["comment"]);
+            $userBook->setDisponibility($book["disponibility"]);
+            $userBook->setImageFileName($book["image_file_name"]);
+            $userBook->setUserId($book["user_id"]);
+            $userBook->setCreatedAt(new DateTime($book["created_at"]));
+
+            $books[] = $userBook;
+        }
+
+        $user->setBooks($books);
+
         return $user;
     }
 
@@ -127,6 +151,31 @@ class UserRepository
         $user->setPassword($result["password"]);
         $user->setAvatarFileName($result["avatar_file_name"]);
         $user->setCreatedAt(new DateTime($result["created_at"]));
+
+        $stmt = $this->pdo->prepare("SELECT * from books WHERE user_id=:user_id;");
+
+        $stmt->execute([":user_id" => $user->getId()]);
+
+        $results = $stmt->fetchAll();
+
+        $books = [];
+
+        foreach ($results as $book) {
+            $userBook = new Book();
+            $userBook->setId($book["id"]);
+            $userBook->setTitle($book["title"]);
+            $userBook->setAuthor($book["author"]);
+            $userBook->setComment($book["comment"]);
+            $userBook->setDisponibility($book["disponibility"]);
+            $userBook->setImageFileName($book["image_file_name"]);
+            $userBook->setUserId($book["user_id"]);
+            $userBook->setCreatedAt(new DateTime($book["created_at"]));
+
+            $books[] = $userBook;
+        }
+
+        $user->setBooks($books);
+
         return $user;
     }
 

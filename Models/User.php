@@ -8,6 +8,7 @@ class User
     private string $mail;
     private string $password;
     private string $avatar_file_name;
+    public array $books;
     private DateTime $created_at;
 
 
@@ -61,6 +62,17 @@ class User
     public function setAvatarFileName(string $avatar_file_name)
     {
         $this->avatar_file_name = $avatar_file_name;
+    }
+
+    public function getBooks(): array
+    {
+
+        return $this->books;
+    }
+
+    public function setBooks(array $books)
+    {
+        $this->books = $books;
     }
 
     public function getCreatedAt()
