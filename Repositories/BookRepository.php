@@ -80,7 +80,7 @@ class BookRepository
             $book->setDisponibility($result["disponibility"]);
             $book->setImageFileName($result["image_file_name"]);
             $book->setUserId($result["user_id"]);
-            $book->setCreatedAt($result["created_at"]);
+            $book->setCreatedAt(new DateTime($result["created_at"]));
 
             return $book;
         } catch (Exception $e) {
