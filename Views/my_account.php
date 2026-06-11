@@ -93,6 +93,38 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <p>ACTION</p>
             </div>
         </div>
+        <?php if (isset($user)): ?>
+            <?php foreach ($user->getBooks() as $book) : ?>
+                <div class="array_row">
+                    <div class="array_row_box">
+                        <img class="image" src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
+                    </div>
+                    <div class="array_row_box">
+                        <p class="title"><?= $book->getTitle() ?></p>
+                    </div>
+                    <div class="array_row_box">
+                        <p class="author"><?= $book->getAuthor() ?></p>
+                    </div>
+                    <div class="array_row_box">
+                        <p><?= $book->getComment() ?></p>
+                    </div>
+                    <div class="array_row_box">
+                        <div class="chips"><?= $book->getDisponibility() === "available" ? "disponible" : "non dispo." ?></div>
+                    </div>
+                    <div class="array_row_box">
+                        <div class="array_row_box_action">
+                            <a class="edit" href="index.php?page=modifier_un_livre&book_id=<?= $book->getId() ?>">
+                                Éditer
+                            </a>
+                            <a class="delete" href="index.php?page=modifier_un_livre&book_id=<?= $book->getId() ?>">
+                                Supprimer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
         <div class="array_row">
             <div class="array_row_box">
                 <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
