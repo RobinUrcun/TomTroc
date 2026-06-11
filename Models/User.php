@@ -16,7 +16,7 @@ class User
 
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
     public function setId(int $id)
