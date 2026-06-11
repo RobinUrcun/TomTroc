@@ -35,8 +35,8 @@ class BooksManagerController
             Redirect::to("404");
             return;
         }
-        $bookRepository = new BookRepository();
 
+        $bookRepository = new BookRepository();
 
         try {
             $book = $bookRepository->getById($book_id);
@@ -54,6 +54,7 @@ class BooksManagerController
         $user = $this->user;
 
         if ($book->getUserId() !== $user->getId()) {
+
             Redirect::to("404");
             return;
         }
@@ -164,9 +165,24 @@ class BooksManagerController
     {
         $user = $this->user;
 
-        $bookId = isset($_POST["book_id"]) ? (int) $_POST["book_id"] : null;
+        $bookId = isset($_GET["book_id"]) ? (int) $_GET["book_id"] : null;
 
         if (!$bookId) {
+            Redirect::to("404");
+            return;
+        }
+
+        $bookRepository = new BookRepository();
+
+
+        try {
+            $book = $bookRepository->getById($bookId);
+        } catch (Exception $e) {
+            Redirect::to("404");
+            return;
+        }
+
+        if ($book->getUserId() !== $user->getId()) {
             Redirect::to("404");
             return;
         }
@@ -204,6 +220,7 @@ class BooksManagerController
             $bookErrorManager->setDisponibilityError($e->getMessage());
         }
 
+
         if ($file["tmp_name"]) {
 
             try {
@@ -237,25 +254,9 @@ class BooksManagerController
             $previousComment = $comment;
             $previousDisponibility = $disponibility;
 
-            require_once(__DIR__ . "../../Views/create_book.php");
+            require_once(__DIR__ . "../../Views/update_book.php");
             return;
         }
-
-        $bookRepository = new BookRepository();
-
-
-        try {
-            $book = $bookRepository->getById($bookId);
-        } catch (Exception $e) {
-            Redirect::to("404");
-            return;
-        }
-
-        if ($book->getUserId() !== $user->getId()) {
-            Redirect::to("404");
-            return;
-        }
-        /* Recuperer le livre, verifier que c'est celui de l'utilisateur ( static methode dans AuthService ), supprimer  l'ancienne photo et update. */
 
         if ($file["tmp_name"]) {
 
@@ -269,7 +270,7 @@ class BooksManagerController
         $fileName = $fileName ?? $book->getImageFileName();
 
         try {
-            $bookRepository->update($bookTitle, $author, $comment, $disponibility, $fileName, $user->getId());
+            $bookRepository->update($bookTitle, $author, $comment, $disponibility, $fileName, $bookId);
         } catch (Error $e) {
 
             Redirect::to("404");
