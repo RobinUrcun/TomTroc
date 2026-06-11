@@ -1127,7 +1127,7 @@ header .header_second_part a .icon {
   margin-bottom: 10px;
 }
 
-.update_book_section .form_wrapper .image_upload_wrapper label {
+.form_wrapper .image_upload_wrapper h2 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   display: block;
@@ -1148,6 +1148,22 @@ header .header_second_part a .icon {
   font-family: "Inter", sans-serif;
   color: #292929;
   font-weight: 300;
+}
+
+.update_book_section .form_wrapper .file_uploader_label {
+  cursor: pointer;
+  display: block;
+  text-align: end;
+  margin: 25px 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.update_book_section .form_wrapper .file_uploader_input::file-selector-button {
+  display: none;
 }
 
 .update_book_section .form_wrapper .auth_input_wrapper textarea {
@@ -1176,14 +1192,11 @@ header .header_second_part a .icon {
   font-weight: 300;
 }
 
-.update_book_section .form_wrapper .auth_input_wrapper .error {
+.update_book_section .form_wrapper .error {
   border: 2px solid red !important;
 }
 
-.update_book_section
-  .form_wrapper
-  .auth_input_wrapper
-  .auth_input_error_message {
+.update_book_section .form_wrapper .auth_input_error_message {
   font-family: "Inter", sans-serif;
   font-size: 12px;
   color: red;
