@@ -788,6 +788,7 @@ header .header_second_part a .icon {
 
 .my_book_section .my_book_section_wrapper {
   margin-bottom: 50px;
+  width: 100%;
 }
 
 .my_book_section .my_book_section_wrapper .array_header {
