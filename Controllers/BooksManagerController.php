@@ -101,7 +101,7 @@ class BooksManagerController
             $bookErrorManager->setDisponibilityError($e->getMessage());
         }
 
-        if ($file["tmp_name"]) {
+        if ($file && $file["tmp_name"]) {
 
             try {
                 $fileManager = new FileManager($file);
@@ -220,8 +220,7 @@ class BooksManagerController
             $bookErrorManager->setDisponibilityError($e->getMessage());
         }
 
-
-        if ($file["tmp_name"]) {
+        if ($file && $file["tmp_name"]) {
 
             try {
                 $fileManager = new FileManager($file);
