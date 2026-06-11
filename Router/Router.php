@@ -83,7 +83,7 @@ class Router
                 if ($this->method === "GET") {
                     $booksManagerController->getUpdateBookPage();
                 } elseif ($this->method === "POST") {
-                    $booksManagerController->create();
+                    $booksManagerController->update();
                 }
 
                 break;
