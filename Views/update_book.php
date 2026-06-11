@@ -14,61 +14,51 @@ include_once(__DIR__ . "/../Layout/header.php");
     <h1>Modifier les informations</h1>
 
     <div class="form_wrapper">
-        <form action="">
+        <form enctype="multipart/form-data" action="./index.php?page=modifier_un_livre&book_id=<?= isset($book) ? $book->getId() : "" ?>" method="POST">
             <div class="image_upload_wrapper">
-                <label for="book_image">
+                <label for="book_picture">
                     Photo
                 </label>
                 <div class="image_wrapper">
-                    <img src="Public/Assets/Auth/auth_banner.jpg" alt="">
+                    <img src="Public/Uploads/Books/<?= isset($book) ? $book->getImageFileName() : 'default_book_image.webp' ?>" alt="">
                 </div>
+
+                <input id="book_picture" name="book_picture" type="file">
             </div>
             <div class="informations_upload_wrapper">
 
                 <div class="auth_input_wrapper">
                     <label for="title">Titre</label>
-                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="title" name="title" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
-                    </div>
-                    <div class="auth_input_error_message">
-                        <?= isset($accountErrorManager) && $accountErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
+                    <input value="<?= isset($previousTitle) ? $previousTitle : (isset($book) ? $book->getTitle() : null) ?>" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" />
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->titleErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="author">Auteur</label>
-                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="author" name="author" type="text" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
-                    </div>
-                    <div class="auth_input_error_message">
-                        <?= isset($accountErrorManager) && $accountErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
+                    <input value="<?= isset($previousAuthor) ? $previousAuthor : (isset($book) ? $book->getAuthor() : null) ?>" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" />
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->authorErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="comment">Commentaire</label>
-                    <textarea value="<?= isset($user) ? $user->getMail() : null ?>" id="comment" name="comment" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>"></textarea>
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
-                    </div>
-                    <div class="auth_input_error_message">
-                        <?= isset($accountErrorManager) && $accountErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
+                    <textarea id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? $previousComment : (isset($book) ? $book->getComment() : "") ?></textarea>
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->commentErrorMessage : null  ?>
                     </div>
                 </div>
 
                 <div class="auth_input_wrapper">
                     <label for="title">disponibilité</label>
-                    <select name="disponibility" id="disponibility">
-                        <option value="available">Disponible</option>
-                        <option value="unavailable">Non disponible</option>
+                    <select class="<?= isset($bookErrorManager) && $bookErrorManager->isDisponibilityError ? 'error' : ''  ?>" name="disponibility" id="disponibility">
+                        <option <?= isset($previousDisponibility) && $previousDisponibility === "available" ? "selected" : (isset($book) && $book->getDisponibility() === "available" ? "selected" : "") ?> value="available">Disponible</option>
+                        <option <?= isset($previousDisponibility) && $previousDisponibility === "unavailable" ? "selected" : (isset($book) && $book->getDisponibility() === "unavailable" ? "selected" : "") ?> value="unavailable">Non disponible</option>
                     </select>
-                    <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
-                        <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
-                    </div>
-                    <div class="auth_input_error_message">
-                        <?= isset($accountErrorManager) && $accountErrorManager->isMailAlreadyUsed ? "Adresse email déjà utilisée" : null  ?>
+                    <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isDisponibilityError ? 'active' : ''  ?>">
+                        <?= isset($bookErrorManager) ? $bookErrorManager->disponibilityErrorMessage : null  ?>
                     </div>
                 </div>
 

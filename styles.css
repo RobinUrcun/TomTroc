@@ -851,11 +851,7 @@ header .header_second_part a .icon {
   gap: 10px;
 }
 
-.my_book_section
-  .my_book_section_wrapper
-  .array_row
-  .array_row_box_action
-  button {
+.my_book_section .my_book_section_wrapper .array_row .array_row_box_action a {
   border: none;
   background-color: unset;
   font-family: "Inter", sans-serif;
@@ -867,17 +863,16 @@ header .header_second_part a .icon {
   .my_book_section_wrapper
   .array_row
   .array_row_box_action
-  .edit
-  button {
+  .edit {
   color: black;
+  margin-right: 20px;
 }
 
 .my_book_section
   .my_book_section_wrapper
   .array_row
   .array_row_box_action
-  .delete
-  button {
+  .delete {
   color: red;
 }
 
@@ -1161,7 +1156,7 @@ header .header_second_part a .icon {
   height: 350px;
   border-radius: 6px;
   background-color: #edf2f6;
-  padding: 0 15px;
+  padding: 15px;
   width: 100%;
   border: 1px solid #f0f0f0;
   font-size: 14px;
