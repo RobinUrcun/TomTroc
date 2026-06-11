@@ -42,7 +42,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <h2 class="my_account_section_subtitle">Vos informations personnelles</h2>
                 <div class="auth_input_wrapper">
                     <label for="mail">Adresse email</label>
-                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="mail" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
                     <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
                         <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
@@ -94,8 +94,8 @@ include_once(__DIR__ . "/../Layout/header.php");
             </div>
         </div>
         <?php if (isset($user)): ?>
-            <?php foreach ($user->getBooks() as $book) : ?>
-                <div class="array_row">
+            <?php foreach ($user->getBooks() as $index => $book) : ?>
+                <div class="array_row <?= ($index % 2) ? 'colored_background' : '' ?>">
                     <div class="array_row_box">
                         <img class="image" src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
                     </div>
@@ -124,142 +124,6 @@ include_once(__DIR__ . "/../Layout/header.php");
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
-
-        <div class="array_row">
-            <div class="array_row_box">
-                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
-            </div>
-            <div class="array_row_box">
-                <p class="title">The Kinkfolk Table</p>
-            </div>
-            <div class="array_row_box">
-                <p class="author">Nathan Williams</p>
-            </div>
-            <div class="array_row_box">
-                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
-            </div>
-            <div class="array_row_box">
-                <div class="chips">disponible</div>
-            </div>
-            <div class="array_row_box">
-                <div class="array_row_box_action">
-                    <form class="edit" action="">
-                        <button>Éditer</button>
-                    </form>
-                    <form class="delete" action="">
-                        <button>Supprimer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="array_row">
-            <div class="array_row_box">
-                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
-            </div>
-            <div class="array_row_box">
-                <p class="title">The Kinkfolk Table</p>
-            </div>
-            <div class="array_row_box">
-                <p class="author">Nathan Williams</p>
-            </div>
-            <div class="array_row_box">
-                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
-            </div>
-            <div class="array_row_box">
-                <div class="chips">disponible</div>
-            </div>
-            <div class="array_row_box">
-                <div class="array_row_box_action">
-                    <form class="edit" action="">
-                        <button>Éditer</button>
-                    </form>
-                    <form class="delete" action="">
-                        <button>Supprimer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="array_row">
-            <div class="array_row_box">
-                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
-            </div>
-            <div class="array_row_box">
-                <p class="title">The Kinkfolk Table</p>
-            </div>
-            <div class="array_row_box">
-                <p class="author">Nathan Williams</p>
-            </div>
-            <div class="array_row_box">
-                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
-            </div>
-            <div class="array_row_box">
-                <div class="chips">disponible</div>
-            </div>
-            <div class="array_row_box">
-                <div class="array_row_box_action">
-                    <form class="edit" action="">
-                        <button>Éditer</button>
-                    </form>
-                    <form class="delete" action="">
-                        <button>Supprimer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="array_row">
-            <div class="array_row_box">
-                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
-            </div>
-            <div class="array_row_box">
-                <p class="title">The Kinkfolk Table</p>
-            </div>
-            <div class="array_row_box">
-                <p class="author">Nathan Williams</p>
-            </div>
-            <div class="array_row_box">
-                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
-            </div>
-            <div class="array_row_box">
-                <div class="chips">disponible</div>
-            </div>
-            <div class="array_row_box">
-                <div class="array_row_box_action">
-                    <form class="edit" action="">
-                        <button>Éditer</button>
-                    </form>
-                    <form class="delete" action="">
-                        <button>Supprimer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="array_row">
-            <div class="array_row_box">
-                <img class="image" src="./Public/Assets/to_delete/3464b64a922f7d911d69633167d3700d8c0b3049.jpg" alt="">
-            </div>
-            <div class="array_row_box">
-                <p class="title">The Kinkfolk Table</p>
-            </div>
-            <div class="array_row_box">
-                <p class="author">Nathan Williams</p>
-            </div>
-            <div class="array_row_box">
-                <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table. </p>
-            </div>
-            <div class="array_row_box">
-                <div class="chips">disponible</div>
-            </div>
-            <div class="array_row_box">
-                <div class="array_row_box_action">
-                    <form class="edit" action="">
-                        <button>Éditer</button>
-                    </form>
-                    <form class="delete" action="">
-                        <button>Supprimer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
     <a href="index.php?page=ajouter_un_livre" class="main_button">
         Ajouter un livre

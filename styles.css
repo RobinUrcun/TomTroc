@@ -887,10 +887,7 @@ header .header_second_part a .icon {
   font-weight: 600;
 }
 
-.my_book_section .my_book_section_wrapper .array_row:nth-child(1),
-.my_book_section .my_book_section_wrapper .array_row:nth-child(3),
-.my_book_section .my_book_section_wrapper .array_row:nth-child(5),
-.my_book_section .my_book_section_wrapper .array_row:nth-child(7) {
+.my_book_section .my_book_section_wrapper .array_row.colored_background {
   background-color: #edf2f6;
 }
 
