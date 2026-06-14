@@ -2,7 +2,6 @@
 
 include_once(__DIR__ . "/../Layout/header.php");
 
-var_dump($lastBooks);
 ?>
 
 <section class="homepage_section">
