@@ -94,7 +94,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <p>ACTION</p>
             </div>
         </div>
-        <?php if (isset($user)): ?>
+        <?php if (isset($user) && count($user->getBooks())): ?>
             <?php foreach ($user->getBooks() as $index => $book) : ?>
                 <div class="array_row <?= ($index % 2) ? 'colored_background' : '' ?>">
                     <div class="array_row_box">
@@ -124,6 +124,10 @@ include_once(__DIR__ . "/../Layout/header.php");
                     </div>
                 </div>
             <?php endforeach; ?>
+        <?php else : ?>
+            <div class="array_row no_books">
+                Aucuns livres enregistrés
+            </div>
         <?php endif; ?>
     </div>
     <a href="index.php?page=ajouter_un_livre" class="main_button">
