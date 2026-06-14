@@ -10,6 +10,8 @@ class Book
     private string $disponibility;
     private string $image_file_name;
     private int $user_id;
+    private string $user_pseudo;
+
     private DateTime $created_at;
 
     public function getId()
@@ -80,6 +82,16 @@ class Book
     public function setUserId(int $user_id)
     {
         $this->user_id = $user_id;
+    }
+
+    public function getUserPseudo()
+    {
+        return $this->user_pseudo;
+    }
+
+    public function setUserPseudo(string $user_pseudo)
+    {
+        $this->user_pseudo = $user_pseudo;
     }
 
     public function getCreatedAt()
