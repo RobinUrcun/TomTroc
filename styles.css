@@ -888,6 +888,10 @@ header .header_second_part a .icon {
   font-weight: 600;
 }
 
+.my_book_section .my_book_section_wrapper .array_row .chips.unavailable {
+  background-color: #c56d6d;
+}
+
 .my_book_section .my_book_section_wrapper .array_row.colored_background {
   background-color: #edf2f6;
 }
