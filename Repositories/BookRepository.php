@@ -88,7 +88,7 @@ class BookRepository
         }
     }
 
-    public function delete($bookId): void
+    public function delete(int $bookId): void
     {
         try {
             $stmt = $this->pdo->prepare("DELETE from books WHERE id=:id;");
@@ -102,5 +102,45 @@ class BookRepository
         } catch (Exception $e) {
             throw new Exception();
         }
+    }
+
+    public function get(?int $quantity = null): array
+    {
+        $sql = "SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON books.user_id = users.id ORDER BY books.created_at DESC";
+
+        if ($quantity) {
+            $sql .= " LIMIT $quantity";
+        }
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute();
+
+        $results = $stmt->fetchAll();
+
+        if (!$results) {
+            throw new Exception();
+        }
+
+        $books = [];
+
+        foreach ($results as $book) {
+            $newBook = new Book();
+
+            $newBook = new Book();
+            $newBook->setId($book["id"]);
+            $newBook->setTitle($book["title"]);
+            $newBook->setAuthor($book["author"]);
+            $newBook->setComment($book["comment"]);
+            $newBook->setDisponibility($book["disponibility"]);
+            $newBook->setImageFileName($book["image_file_name"]);
+            $newBook->setUserId($book["user_id"]);
+            $newBook->setUserPseudo($book["user_pseudo"]);
+            $newBook->setCreatedAt(new DateTime($book["created_at"]));
+
+            $books[] = $newBook;
+        }
+
+        return $books;
     }
 }
