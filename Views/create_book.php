@@ -20,7 +20,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                     Photo
                 </label>
                 <div class="auth_input_wrapper">
-                    <input type="file" name="book_picture" id="book_picture" class="<?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'error' : ''  ?>">
+                    <input type="file" accept="image/jpeg,image/png,image/webp" name="book_picture" id="book_picture" class="<?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'error' : ''  ?>">
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->fileErrorMessage : null  ?>
                     </div>

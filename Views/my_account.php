@@ -14,6 +14,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             <form class="update_avatar_form" method="POST" enctype="multipart/form-data" action="./index.php?page=mon_compte&action=editUserAvatar" id="upload_avatar_form">
                 <label for="upload_avatar_input">modifier</label>
                 <input type="file"
+                    accept="image/jpeg,image/png,image/webp"
                     name="avatar"
                     class="upload_avatar_input"
                     id="upload_avatar_input">

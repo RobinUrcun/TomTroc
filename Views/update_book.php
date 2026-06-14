@@ -27,7 +27,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                     Modifier la photo
                 </label>
 
-                <input class="file_uploader_input<?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'error' : ''  ?>" id="book_picture" name="book_picture" type="file">
+                <input class="file_uploader_input<?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'error' : ''  ?>" id="book_picture" name="book_picture" type="file" accept="image/jpeg,image/png,image/webp">
 
                 <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isFileError ? 'active' : ''  ?>">
                     <?= isset($bookErrorManager) ? $bookErrorManager->fileErrorMessage : null  ?>
