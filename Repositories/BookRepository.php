@@ -88,6 +88,50 @@ class BookRepository
         }
     }
 
+    public function getByTitle(string $title): array
+    {
+        try {
+
+            $stmt = $this->pdo->prepare("SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON users.id = books.user_id WHERE title LIKE :title ORDER BY books.created_at DESC;");
+
+            $stmt->execute([
+                ":title" => "%" . $title . "%"
+            ]);
+
+            $results = $stmt->fetchAll();
+
+            if (gettype($results) !== "array") {
+                throw new Exception();
+            }
+
+            $books = [];
+
+            foreach ($results as $book) {
+                $newBook = new Book();
+
+                $user = new User();
+
+                $newBook->setId($book["id"]);
+                $newBook->setTitle($book["title"]);
+                $newBook->setAuthor($book["author"]);
+                $newBook->setComment($book["comment"]);
+                $newBook->setDisponibility($book["disponibility"]);
+                $newBook->setImageFileName($book["image_file_name"]);
+                $newBook->setCreatedAt(new DateTime($book["created_at"]));
+
+                $user->setPseudo($book["user_pseudo"]);
+
+                $newBook->setUser($user);
+
+                $books[] = $newBook;
+            }
+
+            return $books;
+        } catch (Exception $e) {
+            throw new Exception();
+        }
+    }
+
     public function delete(int $bookId): void
     {
         try {

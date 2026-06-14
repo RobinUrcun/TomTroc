@@ -6,7 +6,9 @@ include_once(__DIR__ . "/../Layout/header.php");
 <section class="our_books_section">
     <div class="hero">
         <h1>Nos livres à l'échange</h1>
-        <form class="search_form" action="">
+        <form class="search_form" action="./index.php" method="GET">
+            <input type="hidden" name="page" value="nos_livres">
+
             <button>
                 <img src="./Public/Assets/Icons/magnifing_glass_icon.svg" alt="">
             </button>
