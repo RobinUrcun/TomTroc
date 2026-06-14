@@ -120,7 +120,6 @@ class UserRepository
             $userBook->setComment($book["comment"]);
             $userBook->setDisponibility($book["disponibility"]);
             $userBook->setImageFileName($book["image_file_name"]);
-            $userBook->setUserId($book["user_id"]);
             $userBook->setCreatedAt(new DateTime($book["created_at"]));
 
             $books[] = $userBook;
@@ -168,7 +167,6 @@ class UserRepository
             $userBook->setComment($book["comment"]);
             $userBook->setDisponibility($book["disponibility"]);
             $userBook->setImageFileName($book["image_file_name"]);
-            $userBook->setUserId($book["user_id"]);
             $userBook->setCreatedAt(new DateTime($book["created_at"]));
 
             $books[] = $userBook;
