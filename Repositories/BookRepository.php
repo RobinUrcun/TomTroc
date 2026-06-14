@@ -73,13 +73,13 @@ class BookRepository
             }
 
             $book = new Book();
+
             $book->setId($result["id"]);
             $book->setTitle($result["title"]);
             $book->setAuthor($result["author"]);
             $book->setComment($result["comment"]);
             $book->setDisponibility($result["disponibility"]);
             $book->setImageFileName($result["image_file_name"]);
-            $book->setUserId($result["user_id"]);
             $book->setCreatedAt(new DateTime($result["created_at"]));
 
             return $book;
@@ -134,9 +134,13 @@ class BookRepository
             $newBook->setComment($book["comment"]);
             $newBook->setDisponibility($book["disponibility"]);
             $newBook->setImageFileName($book["image_file_name"]);
-            $newBook->setUserId($book["user_id"]);
-            $newBook->setUserPseudo($book["user_pseudo"]);
             $newBook->setCreatedAt(new DateTime($book["created_at"]));
+
+            $user = new User();
+
+            $user->setPseudo($book["user_pseudo"]);
+
+            $newBook->setUser($user);
 
             $books[] = $newBook;
         }
