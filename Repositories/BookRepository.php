@@ -87,4 +87,20 @@ class BookRepository
             throw new Exception();
         }
     }
+
+    public function delete($bookId): void
+    {
+        try {
+            $stmt = $this->pdo->prepare("DELETE from books WHERE id=:id;");
+
+            $status = $stmt->execute([":id" => $bookId]);
+
+            if (!$status) {
+                throw new Exception();
+                return;
+            }
+        } catch (Exception $e) {
+            throw new Exception();
+        }
+    }
 }

@@ -110,14 +110,14 @@ include_once(__DIR__ . "/../Layout/header.php");
                         <p><?= $book->getComment() ?></p>
                     </div>
                     <div class="array_row_box">
-                        <div class="chips"><?= $book->getDisponibility() === "available" ? "disponible" : "non dispo." ?></div>
+                        <div class="chips <?= $book->getDisponibility() ?? "" ?>"><?= $book->getDisponibility() === "available" ? "disponible" : "non dispo." ?></div>
                     </div>
                     <div class="array_row_box">
                         <div class="array_row_box_action">
                             <a class="edit" href="index.php?page=modifier_un_livre&book_id=<?= $book->getId() ?>">
                                 Éditer
                             </a>
-                            <a class="delete" href="index.php?page=modifier_un_livre&book_id=<?= $book->getId() ?>">
+                            <a class="delete" href="index.php?page=supprimer_un_livre&book_id=<?= $book->getId() ?>">
                                 Supprimer
                             </a>
                         </div>

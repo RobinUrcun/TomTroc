@@ -88,6 +88,17 @@ class Router
 
                 break;
 
+            case "supprimer_un_livre":
+
+                $booksManagerController = new BooksManagerController();
+                if ($this->method === "GET") {
+                    $booksManagerController->deleteBook();
+                } elseif ($this->method === "POST") {
+                    Redirect::to("404");
+                }
+
+                break;
+
 
             case "deconnexion":
 

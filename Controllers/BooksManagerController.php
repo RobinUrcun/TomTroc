@@ -261,7 +261,7 @@ class BooksManagerController
 
             $fileName = uniqid() . "." . $mappingFileMimeType[$fileManager->mimeType];
 
-            unlink(__DIR__ . "/../Public/Uploads/Avatars/" . $book->getImageFileName());
+            unlink(__DIR__ . "/../Public/Uploads/Books/" . $book->getImageFileName());
 
             move_uploaded_file($file["tmp_name"], __DIR__ . "/../Public/Uploads/Books/" . $fileName);
         }
@@ -275,6 +275,43 @@ class BooksManagerController
             Redirect::to("404");
             return;
         }
+
+        Redirect::to("mon_compte");
+    }
+
+    public function deleteBook()
+    {
+        $user = $this->user;
+
+        $bookId = isset($_GET["book_id"]) ? (int) $_GET["book_id"] : null;
+
+        if (!$bookId) {
+            Redirect::to("404");
+            return;
+        }
+
+        $bookRepository = new BookRepository();
+
+        try {
+            $book = $bookRepository->getById($bookId);
+        } catch (Exception $e) {
+            Redirect::to("404");
+            return;
+        }
+
+        if ($book->getUserId() !== $user->getId()) {
+            Redirect::to("404");
+            return;
+        }
+
+        try {
+            $bookRepository->delete($bookId);
+        } catch (Exception $e) {
+            Redirect::to("404");
+            return;
+        }
+
+        unlink(__DIR__ . "/../Public/Uploads/Books/" . $book->getImageFileName());
 
         Redirect::to("mon_compte");
     }
