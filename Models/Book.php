@@ -9,8 +9,7 @@ class Book
     private string $comment;
     private string $disponibility;
     private string $image_file_name;
-    private int $user_id;
-    private string $user_pseudo;
+    private User $user;
 
     private DateTime $created_at;
 
@@ -74,24 +73,14 @@ class Book
         $this->image_file_name = $image_file_name;
     }
 
-    public function getUserId()
+    public function getUser()
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(int $user_id)
+    public function setUser(User $user)
     {
-        $this->user_id = $user_id;
-    }
-
-    public function getUserPseudo()
-    {
-        return $this->user_pseudo;
-    }
-
-    public function setUserPseudo(string $user_pseudo)
-    {
-        $this->user_pseudo = $user_pseudo;
+        $this->user = $user;
     }
 
     public function getCreatedAt()
