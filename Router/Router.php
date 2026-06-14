@@ -23,7 +23,13 @@ class Router
 
             case "nos_livres":
 
-                $controller = new OurBookController();
+                $controller = new BookController();
+                $controller->getOurBookPage();
+                break;
+
+            case "livre":
+
+                $controller = new BookController();
                 $controller->getOurBookPage();
                 break;
 

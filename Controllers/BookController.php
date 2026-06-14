@@ -1,6 +1,6 @@
 <?php
 
-class OurBookController
+class BookController
 {
 
     public function getOurBookPage()
