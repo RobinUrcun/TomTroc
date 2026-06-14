@@ -365,10 +365,10 @@ header .header_second_part a .icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   padding: 105px 265px;
   background-color: #faf9f7;
   gap: 50px;
+  min-height: 600px;
 }
 
 .our_books_section .hero {
@@ -430,6 +430,18 @@ header .header_second_part a .icon {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 35px;
+}
+
+.our_books_section .no_books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  color: #a6a6a6;
+  font-weight: 300;
 }
 
 /* AUTH PAGES */

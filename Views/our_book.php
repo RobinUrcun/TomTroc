@@ -32,7 +32,10 @@ include_once(__DIR__ . "/../Layout/header.php");
                     </div>
                 </div>
             <?php endforeach;  ?>
-
+        <?php else : ?>
+            <div class="array_row no_books">
+                Aucuns livres trouvés
+            </div>
         <?php endif; ?>
 
     </div>
