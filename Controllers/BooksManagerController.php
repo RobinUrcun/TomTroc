@@ -53,7 +53,7 @@ class BooksManagerController
 
         $user = $this->user;
 
-        if ($book->getUserId() !== $user->getId()) {
+        if ($book->getUser()->getId() !== $user->getId()) {
 
             Redirect::to("404");
             return;
@@ -182,7 +182,7 @@ class BooksManagerController
             return;
         }
 
-        if ($book->getUserId() !== $user->getId()) {
+        if ($book->getUser()->getId() !== $user->getId()) {
             Redirect::to("404");
             return;
         }
@@ -299,7 +299,7 @@ class BooksManagerController
             return;
         }
 
-        if ($book->getUserId() !== $user->getId()) {
+        if ($book->getUser()->getId() !== $user->getId()) {
             Redirect::to("404");
             return;
         }
