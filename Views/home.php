@@ -35,7 +35,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                     <div class="card_content">
                         <h2 class="card_title"><?= $book->getTitle() ?></h2>
                         <p class="card_author"><?= $book->getAuthor() ?></p>
-                        <p class="card_sold_by"><?= $book->getUserPseudo() ?></p>
+                        <p class="card_sold_by"><?= $book->getUser()->getPseudo() ?></p>
                     </div>
                 </div>
             <?php endforeach;  ?>
