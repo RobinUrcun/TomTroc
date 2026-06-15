@@ -61,7 +61,7 @@ class BookRepository
     public function getById(int $id): Book | null
     {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM books WHERE id=:id;");
+            $stmt = $this->pdo->prepare("SELECT books.*, users.id AS user_id, users.pseudo AS user_pseudo, users.avatar_file_name AS user_avatar FROM books JOIN users ON users.id = books.user_id WHERE books.id=:id;");
             $stmt->execute([
                 ":id" => $id
             ]);
@@ -74,6 +74,8 @@ class BookRepository
 
             $book = new Book();
 
+            $user = new User();
+
             $book->setId($result["id"]);
             $book->setTitle($result["title"]);
             $book->setAuthor($result["author"]);
@@ -81,6 +83,12 @@ class BookRepository
             $book->setDisponibility($result["disponibility"]);
             $book->setImageFileName($result["image_file_name"]);
             $book->setCreatedAt(new DateTime($result["created_at"]));
+
+            $user->setPseudo($result["user_pseudo"]);
+            $user->setId($result["user_id"]);
+            $user->setAvatarFileName($result["user_avatar"]);
+
+            $book->setUser($user);
 
             return $book;
         } catch (Exception $e) {
