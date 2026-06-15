@@ -61,7 +61,7 @@ class BookRepository
     public function getById(int $id): Book | null
     {
         try {
-            $stmt = $this->pdo->prepare("SELECT books.*, users.id AS user_id, users.pseudo AS user_pseudo, users.avatar_file_name AS user_avatar FROM books JOIN users ON users.id = books.user_id WHERE books.id=:id;");
+            $stmt = $this->pdo->prepare("SELECT books.*, users.id AS user_id, users.pseudo AS user_pseudo, users.avatar_file_name AS user_avatar FROM books JOIN users ON users.id = books.user_id WHERE books.id=:id ;");
             $stmt->execute([
                 ":id" => $id
             ]);
@@ -100,7 +100,7 @@ class BookRepository
     {
         try {
 
-            $stmt = $this->pdo->prepare("SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON users.id = books.user_id WHERE title LIKE :title ORDER BY books.created_at DESC;");
+            $stmt = $this->pdo->prepare("SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON users.id = books.user_id WHERE title LIKE :title AND books.disponibility = 'available' ORDER BY books.created_at DESC;");
 
             $stmt->execute([
                 ":title" => "%" . $title . "%"
@@ -158,7 +158,7 @@ class BookRepository
 
     public function get(?int $quantity = null): array
     {
-        $sql = "SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON books.user_id = users.id ORDER BY books.created_at DESC";
+        $sql = "SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON books.user_id = users.id WHERE books.disponibility = 'available' ORDER BY books.created_at DESC";
 
         if ($quantity) {
             $sql .= " LIMIT $quantity";
