@@ -30,7 +30,7 @@ class Router
             case "livre":
 
                 $controller = new BookController();
-                $controller->getOurBookPage();
+                $controller->getBookPage();
                 break;
 
             case "connexion":

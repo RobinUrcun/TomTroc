@@ -121,6 +121,7 @@ header .header_second_part a .icon {
   border-bottom-right-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 4px 24px #00000003;
+  text-decoration: none;
 }
 
 .card .card_content {
@@ -139,6 +140,7 @@ header .header_second_part a .icon {
   font-weight: 400;
   font-family: "Inter", sans-serif;
   font-size: 16px;
+  color: #000000;
 }
 
 .card .card_content .card_author {
@@ -442,6 +444,121 @@ header .header_second_part a .icon {
   font-size: 22px;
   color: #a6a6a6;
   font-weight: 300;
+}
+
+/* BOOK PAGE */
+
+.book_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #faf9f7;
+}
+
+.book_section .book_section_image_wrapper,
+.book_section .book_section_content_wrapper {
+  flex: 1;
+  width: 50%;
+}
+
+.book_section .book_section_image_wrapper {
+  max-height: 800px;
+}
+
+.book_section .book_section_image_wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.book_section .book_section_content_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.book_section h1 {
+  margin: 60px 150px 15px 85px;
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-size: 36px;
+}
+
+.book_section .book_section_author {
+  margin: 0 150px 0 85px;
+  font-family: "Inter", sans-serif;
+  color: #a6a6a6;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.book_section .book_section_separator {
+  margin: 33px 150px 33px 85px;
+  width: 27px;
+  height: 1px;
+  background-color: #a6a6a6;
+}
+
+.book_section h2 {
+  margin: 0 150px 16px 85px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #292929;
+  font-size: 8px;
+}
+
+.book_section .book_section_description {
+  margin: 0 150px 32px 85px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #292929;
+  font-size: 14px;
+}
+
+.book_section .book_section_user_informations {
+  margin: 0 150px 0 85px;
+  opacity: 1;
+  border-radius: 114px;
+  padding: 6px 17px 6px 6px;
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.book_section .book_section_user_informations .book_section_user_avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.book_section .book_section_user_informations .book_section_user_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book_section .book_section_user_informations .book_section_user_pseudo {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #292929;
+}
+
+.book_section .book_section_button {
+  margin: 80px 150px 80px 85px;
+  display: flex;
+  justify-content: center;
+}
+
+.book_section .book_section_author {
+  margin: 0 150px 0 85px;
 }
 
 /* AUTH PAGES */
