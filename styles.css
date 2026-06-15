@@ -160,6 +160,7 @@ header .header_second_part a .icon {
 .main_button {
   border: none;
   background-color: #00ac66;
+  cursor: pointer;
   padding: 22px 40px;
   color: white;
   border-radius: 10px;
