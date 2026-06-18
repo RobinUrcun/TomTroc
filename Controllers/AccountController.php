@@ -1,6 +1,6 @@
 <?php
 
-class MyAccountController
+class AccountController
 {
     private ?User $user;
 

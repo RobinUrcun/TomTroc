@@ -58,19 +58,22 @@ class Router
                 break;
 
             case "mon_compte":
-                $myAccountController = new MyAccountController();
+                $accountController = new AccountController();
 
                 if ($this->method === "GET") {
-                    $myAccountController->getMyAccountPage();
+                    $accountController->getMyAccountPage();
                 } elseif ($this->method === "POST") {
                     if (isset($_GET['action']) && $_GET['action'] === 'editUserInformations') {
 
-                        $myAccountController->editUserInformation();
+                        $accountController->editUserInformation();
                     } elseif (isset($_GET['action']) && $_GET['action'] === 'editUserAvatar') {
-                        $myAccountController->editUserAvatar();
+                        $accountController->editUserAvatar();
                     }
                 }
                 break;
+
+            case "compte_utilisateur":
+
 
             case "ajouter_un_livre":
 
