@@ -465,6 +465,8 @@ header .header_second_part a .icon {
 
 .book_section .book_section_image_wrapper {
   max-height: 800px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .book_section .book_section_image_wrapper img {

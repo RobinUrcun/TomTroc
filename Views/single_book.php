@@ -4,8 +4,8 @@ include_once(__DIR__ . "/../Layout/header.php");
 ?>
 
 <section class="book_section">
-    <div class="book_section_image_wrapper">
-        <img src="./Public/Uploads/Books/<?= isset($book) ? $book->getImageFileName() : ""  ?>" alt="">
+    <div class="book_section_image_wrapper" style="background-image: url(<?= isset($book) ? "./Public/Uploads/Books/" . $book->getImageFileName() . ')' : ')'  ?>">
+
     </div>
     <div class="book_section_content_wrapper">
         <h1><?= isset($book) ? $book->getTitle() : "" ?></h1>
