@@ -7,22 +7,50 @@ class AccountController
     public function __construct()
     {
         $this->user = AuthServices::getAuthenticatedUser();
-
-        if (!$this->user) {
-            Redirect::to("connexion");
-        }
     }
 
     public function getMyAccountPage()
     {
+        if (!$this->user) {
+            Redirect::to("connexion");
+        }
         $user = $this->user;
-        $title = "Mon compte";
+        $title = "Page Utilisateur";
         require_once(__DIR__ . "/../Views/my_account.php");
     }
 
 
+    public function getUserAccountPage()
+    {
+        $user = $this->user;
+
+        $user_id = isset($_GET["user_id"]) ? (int) $_GET["user_id"] : null;
+
+        if (!$user_id) {
+            Redirect::to("404");
+        }
+
+        try {
+            $userRepository = new UserRepository();
+            $user_account = $userRepository->getById($user_id);
+        } catch (Exception $e) {
+            Redirect::to("404");
+            return;
+        }
+
+        if (!$user_account) {
+            Redirect::to("404");
+        }
+
+        $title = "Profil public";
+        require_once(__DIR__ . "/../Views/user_account.php");
+    }
+
     public function editUserInformation()
     {
+        if (!$this->user) {
+            Redirect::to("connexion");
+        }
 
         $user = $this->user;
 
@@ -87,6 +115,10 @@ class AccountController
 
     public function editUserAvatar()
     {
+        if (!$this->user) {
+            Redirect::to("connexion");
+        }
+
         $file = isset($_FILES["avatar"]) ? $_FILES["avatar"] : null;
 
         $user = $this->user;

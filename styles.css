@@ -449,7 +449,7 @@ header .header_second_part a .icon {
 
 /* BOOK PAGE */
 
-.book_section {
+.single_book_section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -457,39 +457,39 @@ header .header_second_part a .icon {
   background-color: #faf9f7;
 }
 
-.book_section .book_section_image_wrapper,
-.book_section .book_section_content_wrapper {
+.single_book_section .book_section_image_wrapper,
+.single_book_section .book_section_content_wrapper {
   flex: 1;
   width: 50%;
 }
 
-.book_section .book_section_image_wrapper {
+.single_book_section .book_section_image_wrapper {
   max-height: 800px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.book_section .book_section_image_wrapper img {
+.single_book_section .book_section_image_wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.book_section .book_section_content_wrapper {
+.single_book_section .book_section_content_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.book_section h1 {
+.single_book_section h1 {
   margin: 60px 150px 15px 85px;
   font-family: "Playfair Display", serif;
   font-weight: 300;
   font-size: 36px;
 }
 
-.book_section .book_section_author {
+.single_book_section .book_section_author {
   margin: 0 150px 0 85px;
   font-family: "Inter", sans-serif;
   color: #a6a6a6;
@@ -497,14 +497,14 @@ header .header_second_part a .icon {
   font-size: 16px;
 }
 
-.book_section .book_section_separator {
+.single_book_section .book_section_separator {
   margin: 33px 150px 33px 85px;
   width: 27px;
   height: 1px;
   background-color: #a6a6a6;
 }
 
-.book_section h2 {
+.single_book_section h2 {
   margin: 0 150px 16px 85px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -512,15 +512,16 @@ header .header_second_part a .icon {
   font-size: 8px;
 }
 
-.book_section .book_section_description {
+.single_book_section .book_section_description {
   margin: 0 150px 32px 85px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #292929;
   font-size: 14px;
+  white-space: pre-line;
 }
 
-.book_section .book_section_user_informations {
+.single_book_section .book_section_user_informations {
   margin: 0 150px 0 85px;
   opacity: 1;
   border-radius: 114px;
@@ -534,33 +535,36 @@ header .header_second_part a .icon {
   text-decoration: none;
 }
 
-.book_section .book_section_user_informations .book_section_user_avatar {
+.single_book_section .book_section_user_informations .book_section_user_avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.book_section .book_section_user_informations .book_section_user_avatar img {
+.single_book_section
+  .book_section_user_informations
+  .book_section_user_avatar
+  img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.book_section .book_section_user_informations .book_section_user_pseudo {
+.single_book_section .book_section_user_informations .book_section_user_pseudo {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #292929;
 }
 
-.book_section .book_section_button {
+.single_book_section .book_section_button {
   margin: 80px 150px 80px 85px;
   display: flex;
   justify-content: center;
 }
 
-.book_section .book_section_author {
+.single_book_section .book_section_author {
   margin: 0 150px 0 85px;
 }
 
@@ -657,60 +661,29 @@ header .header_second_part a .icon {
   color: #292929;
 }
 
-/* MY ACCOUNT */
+/* USER ACCOUNT */
 
-.my_account_section {
+.user_account_section {
   background-color: #faf9f7;
-  padding: 90px 150px 17px;
-}
-
-.my_account_section .my_account_section_title {
-  font-family: "Playfair Display", serif;
-  font-size: 26px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.786);
-  margin: 0 0 50px;
-}
-
-.my_account_section .my_account_section_wrapper {
+  padding: 100px 150px 17px;
   display: flex;
   flex-direction: row;
-  gap: 35px;
+  align-items: flex-start;
+  gap: 30px;
 }
-.my_account_section_wrapper .my_account_section_resume,
-.my_account_section_wrapper .my_account_section_form {
-  background-color: white;
+
+.user_account_section .user_account_section_resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  min-width: 340px;
+  padding: 50px 65px;
   border-radius: 20px;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.my_account_section .my_account_section_wrapper .my_account_section_resume {
-  padding: 50px 20px 95px;
-}
-
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_avatar_wrapper {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 135px;
-  height: 135px;
-  cursor: pointer;
-}
-
-.my_account_section .my_account_section_resume .update_avatar_form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_resume
-  .avatar_img {
+.user_account_section .user_account_section_resume .avatar_img {
   border-radius: 50%;
   overflow: hidden;
   width: 135px;
@@ -718,35 +691,7 @@ header .header_second_part a .icon {
   object-fit: cover;
 }
 
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_resume
-  label {
-  cursor: pointer;
-  border: none;
-  margin-top: 5px;
-  background-color: unset;
-  font-family: "Inter", sans-serif;
-  color: #a6a6a6;
-  text-decoration: underline;
-}
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_resume
-  input {
-  display: none;
-}
-
-.my_account_section .my_account_section_resume .update_avatar_form button {
-  border: none;
-  margin-top: 5px;
-  background-color: unset;
-  font-family: "Inter", sans-serif;
-  color: #a6a6a6;
-  text-decoration: underline;
-}
-
-.my_account_section .my_account_section_resume .separator {
+.user_account_section .user_account_section_resume .separator {
   width: 100%;
   max-width: 250px;
   height: 1px;
@@ -754,9 +699,9 @@ header .header_second_part a .icon {
   margin: 50px auto;
 }
 
-.my_account_section
-  .my_account_section_resume
-  .my_account_section_user_info_wrapper
+.user_account_section
+  .user_account_section_resume
+  .user_account_section_user_info_wrapper
   .pseudo {
   font-family: "Playfair Display", serif;
   text-align: center;
@@ -766,9 +711,9 @@ header .header_second_part a .icon {
   color: #292929;
 }
 
-.my_account_section
-  .my_account_section_resume
-  .my_account_section_user_info_wrapper
+.user_account_section
+  .user_account_section_resume
+  .user_account_section_user_info_wrapper
   .user_registered_since {
   font-family: "Inter", sans-serif;
   text-align: center;
@@ -779,9 +724,9 @@ header .header_second_part a .icon {
   margin-top: 10px;
 }
 
-.my_account_section
-  .my_account_section_resume
-  .my_account_section_user_info_wrapper
+.user_account_section
+  .user_account_section_resume
+  .user_account_section_user_info_wrapper
   .library {
   font-family: "Inter", sans-serif;
   text-align: center;
@@ -792,9 +737,9 @@ header .header_second_part a .icon {
   margin-bottom: 6px;
 }
 
-.my_account_section
-  .my_account_section_resume
-  .my_account_section_user_info_wrapper
+.user_account_section
+  .user_account_section_resume
+  .user_account_section_user_info_wrapper
   .books_count_wrapper {
   display: flex;
   flex-direction: row;
@@ -803,9 +748,9 @@ header .header_second_part a .icon {
   flex-wrap: nowrap;
 }
 
-.my_account_section
-  .my_account_section_resume
-  .my_account_section_user_info_wrapper
+.user_account_section
+  .user_account_section_resume
+  .user_account_section_user_info_wrapper
   .books_count {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -813,19 +758,184 @@ header .header_second_part a .icon {
   color: #292929;
 }
 
-.my_account_section .my_account_section_resume .books_count_wrapper img {
+.user_account_section .user_account_section_resume .books_count_wrapper img {
   width: 17px;
   height: 17px;
   object-fit: contain;
 }
 
-.my_account_section .my_account_section_wrapper .my_account_section_form {
+.send_message_button {
+  width: fit-content;
+  background-color: #f5f3ef;
+  color: #00ac66;
+  border: 1px solid #00ac66;
+  padding: 22px 35px;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+
+/* MY ACCOUNT */
+
+.account_section {
+  background-color: #faf9f7;
+  padding: 90px 150px 17px;
+}
+
+.account_section .account_section_title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.786);
+  margin: 0 0 50px;
+}
+
+.account_section .account_section_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+.account_section_wrapper .account_section_resume,
+.account_section_wrapper .account_section_form {
+  background-color: white;
+  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account_section .account_section_wrapper .account_section_resume {
+  padding: 50px 20px 95px;
+}
+
+.account_section .account_section_wrapper .account_section_avatar_wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 135px;
+  height: 135px;
+  cursor: pointer;
+}
+
+.account_section .account_section_resume .update_avatar_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account_section .account_section_wrapper .account_section_resume .avatar_img {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 135px;
+  height: 135px;
+  object-fit: cover;
+}
+
+.account_section .account_section_wrapper .account_section_resume label {
+  cursor: pointer;
+  border: none;
+  margin-top: 5px;
+  background-color: unset;
+  font-family: "Inter", sans-serif;
+  color: #a6a6a6;
+  text-decoration: underline;
+}
+.account_section .account_section_wrapper .account_section_resume input {
+  display: none;
+}
+
+.account_section .account_section_resume .update_avatar_form button {
+  border: none;
+  margin-top: 5px;
+  background-color: unset;
+  font-family: "Inter", sans-serif;
+  color: #a6a6a6;
+  text-decoration: underline;
+}
+
+.account_section .account_section_resume .separator {
+  width: 100%;
+  max-width: 250px;
+  height: 1px;
+  background-color: #f5f3ef;
+  margin: 50px auto;
+}
+
+.account_section
+  .account_section_resume
+  .account_section_user_info_wrapper
+  .pseudo {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 24px;
+  margin: 0 auto 10px;
+  font-weight: 400;
+  color: #292929;
+}
+
+.account_section
+  .account_section_resume
+  .account_section_user_info_wrapper
+  .user_registered_since {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 14px;
+  color: #a6a6a6;
+  font-weight: 300;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.account_section
+  .account_section_resume
+  .account_section_user_info_wrapper
+  .library {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #292929;
+  margin-bottom: 6px;
+}
+
+.account_section
+  .account_section_resume
+  .account_section_user_info_wrapper
+  .books_count_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 3px;
+  flex-wrap: nowrap;
+}
+
+.account_section
+  .account_section_resume
+  .account_section_user_info_wrapper
+  .books_count {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #292929;
+}
+
+.account_section .account_section_resume .books_count_wrapper img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+.account_section .account_section_wrapper .account_section_form {
   padding: 40px 20px;
 }
 
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_form
+.account_section
+  .account_section_wrapper
+  .account_section_form
   .update_user_info {
   width: 100%;
   max-width: 320px;
@@ -834,10 +944,10 @@ header .header_second_part a .icon {
   row-gap: 30px;
 }
 
-.my_account_section
-  .my_account_section_wrapper
-  .my_account_section_form
-  .my_account_section_subtitle {
+.account_section
+  .account_section_wrapper
+  .account_section_form
+  .account_section_subtitle {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   margin: 0;
@@ -845,20 +955,20 @@ header .header_second_part a .icon {
   color: #292929;
 }
 
-.my_account_section_wrapper .my_account_section_form .auth_input_wrapper {
+.account_section_wrapper .account_section_form .auth_input_wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.my_account_section_wrapper .my_account_section_form .auth_input_wrapper label {
+.account_section_wrapper .account_section_form .auth_input_wrapper label {
   font-size: 14px;
   font-family: "Inter", sans-serif;
   font-weight: 300;
   color: #a6a6a6;
 }
 
-.my_account_section_wrapper .my_account_section_form .auth_input_wrapper input {
+.account_section_wrapper .account_section_form .auth_input_wrapper input {
   height: 50px;
   border-radius: 6px;
   background-color: #edf2f6;
@@ -871,11 +981,11 @@ header .header_second_part a .icon {
   font-weight: 300;
 }
 
-.my_account_section .auth_input_wrapper .error {
+.account_section .auth_input_wrapper .error {
   border: 2px solid red !important;
 }
 
-.my_account_section .auth_input_error_message {
+.account_section .auth_input_error_message {
   display: none;
   margin-top: 5px;
   font-family: "Inter", sans-serif;
@@ -883,42 +993,36 @@ header .header_second_part a .icon {
   color: red;
 }
 
-.my_account_section .auth_input_error_message.active {
+.account_section .auth_input_error_message.active {
   display: block;
 }
 
-.my_account_section .my_account_section_form .auth_section_failed_login {
+.account_section .account_section_form .auth_section_failed_login {
   margin-bottom: 32px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: red;
 }
 
-.my_account_section_wrapper .my_account_section_form .main_button {
+.account_section_wrapper .account_section_form .main_button {
   width: fit-content;
   background-color: #f5f3ef;
   color: #00ac66;
   border: 1px solid #00ac66;
 }
 
-.my_book_section {
-  padding: 18px 150px 100px;
-  background-color: #faf9f7;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.my_book_section .my_book_section_wrapper .array_header,
-.my_book_section .my_book_section_wrapper .array_row {
+.book_section_wrapper .array_header,
+.book_section_wrapper .array_row {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
   justify-content: space-between;
   padding: 30px 20px;
+  color: #292929;
 }
 
-.my_book_section .my_book_section_wrapper .array_row.no_books {
+.book_section_wrapper .array_row.no_books {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -930,25 +1034,33 @@ header .header_second_part a .icon {
   font-weight: 300;
 }
 
-.my_book_section .my_book_section_wrapper {
+.book_section {
+  padding: 18px 150px 100px;
+  background-color: #faf9f7;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.book_section_wrapper {
   margin-bottom: 50px;
   width: 100%;
 }
 
-.my_book_section .my_book_section_wrapper .array_header {
+.book_section_wrapper .array_header {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #fff;
 }
 
-.my_book_section .my_book_section_wrapper .array_row {
+.book_section_wrapper .array_row {
   border-left: 1px solid #f5f3ef;
   border-right: 1px solid #f5f3ef;
   border-bottom: 1px solid #f5f3ef;
 }
 
-.my_book_section .my_book_section_wrapper .array_header .array_header_box,
-.my_book_section .my_book_section_wrapper .array_row .array_row_box {
+.book_section_wrapper .array_header .array_header_box,
+.book_section_wrapper .array_row .array_row_box {
   flex: 1;
   width: 1/6;
   font-family: Inter;
@@ -956,27 +1068,32 @@ header .header_second_part a .icon {
   font-size: 8px;
 }
 
-.my_book_section .my_book_section_wrapper .array_header {
+.book_section_wrapper .array_header .array_header_box.comment,
+.book_section_wrapper .array_row .array_row_box.comment {
+  font-style: italic;
+}
+
+.book_section_wrapper .array_header {
   padding: 30px 66px 8px 66px;
   border: 1px solid #f5f3ef;
 }
 
-.my_book_section .my_book_section_wrapper .array_header p {
+.book_section_wrapper .array_header p {
   margin: 0;
 }
 
-.my_book_section .my_book_section_wrapper .array_row {
+.book_section_wrapper .array_row {
   background-color: #fff;
   padding: 25px 66px 25px 66px;
 }
-.my_book_section .my_book_section_wrapper .array_row .array_row_box {
+.book_section_wrapper .array_row .array_row_box {
   font-family: Inter;
   font-weight: 300;
   font-size: 12px;
   padding-right: 4%;
 }
 
-.my_book_section .my_book_section_wrapper .array_row .array_row_box p {
+.book_section_wrapper .array_row .array_row_box p {
   display: -webkit-box;
   line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -984,19 +1101,19 @@ header .header_second_part a .icon {
   overflow: hidden;
 }
 
-.my_book_section .my_book_section_wrapper .array_row .image {
+.book_section_wrapper .array_row .image {
   width: 80px;
   height: 80px;
   object-fit: cover;
 }
-.my_book_section .my_book_section_wrapper .array_row .array_row_box_action {
+.book_section_wrapper .array_row .array_row_box_action {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
 }
 
-.my_book_section .my_book_section_wrapper .array_row .array_row_box_action a {
+.book_section_wrapper .array_row .array_row_box_action a {
   border: none;
   background-color: unset;
   font-family: "Inter", sans-serif;
@@ -1004,24 +1121,16 @@ header .header_second_part a .icon {
   cursor: pointer;
 }
 
-.my_book_section
-  .my_book_section_wrapper
-  .array_row
-  .array_row_box_action
-  .edit {
+.book_section_wrapper .array_row .array_row_box_action .edit {
   color: black;
   margin-right: 20px;
 }
 
-.my_book_section
-  .my_book_section_wrapper
-  .array_row
-  .array_row_box_action
-  .delete {
+.book_section_wrapper .array_row .array_row_box_action .delete {
   color: red;
 }
 
-.my_book_section .my_book_section_wrapper .array_row .chips {
+.book_section_wrapper .array_row .chips {
   background-color: #6dc5a1;
   color: white;
   width: fit-content;
@@ -1032,15 +1141,15 @@ header .header_second_part a .icon {
   font-weight: 600;
 }
 
-.my_book_section .my_book_section_wrapper .array_row .chips.unavailable {
+.book_section_wrapper .array_row .chips.unavailable {
   background-color: #c56d6d;
 }
 
-.my_book_section .my_book_section_wrapper .array_row.colored_background {
+.book_section_wrapper .array_row.colored_background {
   background-color: #edf2f6;
 }
 
-.my_book_section .my_book_section_wrapper .array_row:last-child {
+.book_section_wrapper .array_row:last-child {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }

@@ -73,6 +73,10 @@ class Router
                 break;
 
             case "compte_utilisateur":
+                $accountController = new AccountController();
+
+                $accountController->getUserAccountPage();
+                break;
 
 
             case "ajouter_un_livre":
