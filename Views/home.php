@@ -30,14 +30,14 @@ include_once(__DIR__ . "/../Layout/header.php");
         <?php if (isset($lastBooks) && count($lastBooks)) : ?>
 
             <?php foreach ($lastBooks as $book) :  ?>
-                <div class="card">
+                <a href="./index.php?page=livre&id=<?= $book->getId() ?>" class="card">
                     <img src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
                     <div class="card_content">
                         <h2 class="card_title"><?= $book->getTitle() ?></h2>
                         <p class="card_author"><?= $book->getAuthor() ?></p>
                         <p class="card_sold_by"><?= $book->getUser()->getPseudo() ?></p>
                     </div>
-                </div>
+                </a>
             <?php endforeach;  ?>
 
         <?php endif; ?>
