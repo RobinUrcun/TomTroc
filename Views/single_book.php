@@ -3,7 +3,7 @@
 include_once(__DIR__ . "/../Layout/header.php");
 ?>
 
-<section class="book_section">
+<section class="single_book_section">
     <div class="book_section_image_wrapper" style="background-image: url(<?= isset($book) ? "./Public/Uploads/Books/" . $book->getImageFileName() . ')' : ')'  ?>">
 
     </div>

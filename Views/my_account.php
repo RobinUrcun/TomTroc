@@ -4,10 +4,10 @@ include_once(__DIR__ . "/../Layout/header.php");
 
 ?>
 
-<section class="my_account_section">
-    <h1 class="my_account_section_title">Mon compte</h1>
-    <div class="my_account_section_wrapper">
-        <div class="my_account_section_resume">
+<section class="account_section">
+    <h1 class="account_section_title">Mon compte</h1>
+    <div class="account_section_wrapper">
+        <div class="account_section_resume">
 
             <img class="avatar_img" src="./Public/Uploads/Avatars/<?= isset($user) ? $user->getAvatarFileName() : null ?>" alt="">
 
@@ -24,7 +24,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             </div>
 
             <div class="separator"></div>
-            <div class="my_account_section_user_info_wrapper">
+            <div class="account_section_user_info_wrapper">
                 <p class="pseudo"><?= isset($user) ? $user->getPseudo() : "" ?></p>
                 <p class="user_registered_since">
                     Membre depuis 1 an
@@ -38,9 +38,9 @@ include_once(__DIR__ . "/../Layout/header.php");
 
             </div>
         </div>
-        <div class="my_account_section_form">
+        <div class="account_section_form">
             <form class="update_user_info" action="/TomTroc/index.php?page=mon_compte&action=editUserInformations" method="POST">
-                <h2 class="my_account_section_subtitle">Vos informations personnelles</h2>
+                <h2 class="account_section_subtitle">Vos informations personnelles</h2>
                 <div class="auth_input_wrapper">
                     <label for="mail">Adresse email</label>
                     <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
@@ -72,8 +72,8 @@ include_once(__DIR__ . "/../Layout/header.php");
     </div>
 </section>
 
-<section class="my_book_section">
-    <div class="my_book_section_wrapper">
+<section class="book_section">
+    <div class="book_section_wrapper">
         <div class="array_header">
             <div class="array_header_box">
                 <p>PHOTO</p>
