@@ -112,6 +112,13 @@ class Router
 
                 break;
 
+            case "messagerie":
+                $messagerieController = new MessagingController();
+                $messagerieController->getMessagingPage();
+
+                break;
+
+
 
             case "deconnexion":
 
