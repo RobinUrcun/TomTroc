@@ -22,7 +22,7 @@
         </div>
         <div class="header_second_part">
             <?php if (isset($user)): ?>
-                <a href="">
+                <a href="index.php?page=messagerie">
                     <img class="icon" src="./Public/Assets/Icons/message_icon.svg" alt="">
                     <span>Messagerie</span>
                     <div class="counter_wrapper">
