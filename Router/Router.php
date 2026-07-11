@@ -113,8 +113,20 @@ class Router
                 break;
 
             case "messagerie":
+
                 $messagerieController = new MessagingController();
-                $messagerieController->getMessagingPage();
+
+                if ($this->method === "GET") {
+                    $target_user_id = isset($_GET["utilisateur_id"]) ? (int) $_GET["utilisateur_id"] : null;
+                    if ($target_user_id) {
+                        $messagerieController->getMessagingWithUserPage($target_user_id);
+                    } else {
+                        $messagerieController->getMessagingPage();
+                    }
+                } elseif ($this->method === "POST") {
+                    $messagerieController->sendMessage();
+                }
+
 
                 break;
 
