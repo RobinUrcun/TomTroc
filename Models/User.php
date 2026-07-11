@@ -8,7 +8,7 @@ class User
     private string $mail;
     private string $password;
     private string $avatar_file_name;
-    public array $books;
+    private array $books;
     private DateTime $created_at;
 
 
