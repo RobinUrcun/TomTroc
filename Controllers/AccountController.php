@@ -13,6 +13,7 @@ class AccountController
     {
         if (!$this->user) {
             Redirect::to("connexion");
+            return;
         }
         $user = $this->user;
         $title = "Page Utilisateur";
@@ -50,6 +51,7 @@ class AccountController
     {
         if (!$this->user) {
             Redirect::to("connexion");
+            return;
         }
 
         $user = $this->user;
@@ -117,6 +119,7 @@ class AccountController
     {
         if (!$this->user) {
             Redirect::to("connexion");
+            return;
         }
 
         $file = isset($_FILES["avatar"]) ? $_FILES["avatar"] : null;
