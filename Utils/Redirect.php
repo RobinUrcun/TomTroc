@@ -3,8 +3,18 @@
 class Redirect
 {
 
-    public static function to(string $url)
+    public static function to(string $url, ?array $arguments = null)
     {
-        header("Location: " . "index.php?page=" . $url);
+        $completeUrl = "Location: " . "index.php?page=" . $url;
+
+        if ($arguments) {
+            $completeUrl .= "&";
+            foreach ($arguments as $key => $value) {
+                $completeUrl .= $key;
+                $completeUrl .= "=";
+                $completeUrl .= $value;
+            }
+        }
+        header($completeUrl);
     }
 }
