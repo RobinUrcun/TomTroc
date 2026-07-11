@@ -135,7 +135,7 @@ include_once(__DIR__ . "/../Layout/header.php");
     </a>
 </section>
 
-<script src="./Js/index.js"></script>
+<script src="./Js/submitForm.js"></script>
 
 
 <?php
