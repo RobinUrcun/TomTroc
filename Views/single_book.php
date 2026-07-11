@@ -24,7 +24,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             <div class="book_section_user_pseudo"><?= isset($book) ? $book->getUser()->getPseudo() : "" ?></div>
         </a>
 
-        <a class="book_section_button main_button" href="./index.php?page=compte_utilisateur&user_id=<?= isset($book) ? $book->getUser()->getId() : "" ?>">Envoyer un message</a>
+        <a class="book_section_button main_button" href="./index.php?page=messagerie&utilisateur_id=<?= isset($book) ? $book->getUser()->getId() : "" ?>">Envoyer un message</a>
 
     </div>
 </section>

@@ -23,7 +23,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             </div>
 
         </div>
-        <a href="" class="main_button send_message_button">Écrire un message</a>
+        <a href="./index.php?page=messagerie&utilisateur_id=<?= isset($user_account) ? $user_account->getId() : "" ?>" class="main_button send_message_button">Écrire un message</a>
     </div>
 
     <div class="book_section_wrapper">
