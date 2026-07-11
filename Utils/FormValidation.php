@@ -97,4 +97,13 @@ class FormValidation
             throw new Exception("Ce type de disponibilité n'existe pas");
         }
     }
+
+    public static function isMessageContentValid(?string $message_content)
+    {
+        if ($message_content) {
+            if (strlen($message_content) > 1000) {
+                throw new Exception("Le message ne doit pas exceder 1000 caractères");
+            }
+        }
+    }
 }
