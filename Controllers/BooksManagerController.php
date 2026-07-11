@@ -11,7 +11,7 @@ class BooksManagerController
 
         if (!$user) {
 
-            Redirect::to("accueil");
+            Redirect::to("connexion");
             return;
         }
 
