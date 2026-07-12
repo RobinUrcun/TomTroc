@@ -110,6 +110,12 @@ class UserRepository
 
         $user->setBooks($books);
 
+        $messageRepository = new MessageRepository();
+
+        $unreadMessagesCount = $messageRepository->getUnreadMessagesCount($user->getId());
+
+        $user->setUnreadMessagesCount($unreadMessagesCount);
+
         return $user;
     }
 

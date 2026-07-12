@@ -25,9 +25,11 @@
                 <a href="index.php?page=messagerie">
                     <img class="icon" src="./Public/Assets/Icons/message_icon.svg" alt="">
                     <span>Messagerie</span>
-                    <div class="counter_wrapper">
-                        <p>1</p>
-                    </div>
+                    <?php if ($user->getUnreadMessagesCount() > 0): ?>
+                        <div class="counter_wrapper">
+                            <p><?= $user->getUnreadMessagesCount() ?></p>
+                        </div>
+                    <?php endif; ?>
                 </a>
                 <a href="index.php?page=mon_compte">
                     <img class="icon" src="./Public/Assets/Icons/account_icon.svg" alt="">

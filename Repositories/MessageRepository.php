@@ -79,4 +79,29 @@ class MessageRepository
 
         return $message;
     }
+
+    public function getUnreadMessagesCount(int $userId): int
+    {
+        $stmt = $this->pdo->prepare("SELECT discussions.id FROM user_discussion INNER JOIN discussions ON user_discussion.discussion_id = discussions.id WHERE user_discussion.user_id = :user_id");
+
+        $stmt->execute([
+            ":user_id" => $userId
+        ]);
+
+        $results = $stmt->fetchAll();
+
+        $counter = 0;
+
+
+        foreach ($results as $result) {
+
+            $lastMessage = $this->getLastMessage($result["id"]);
+
+            if (!$lastMessage->getIsRead() && $lastMessage->getFromUserId() !== $userId) {
+                $counter++;
+            }
+        }
+
+        return $counter;
+    }
 }
