@@ -12,7 +12,7 @@ include_once(__DIR__ . "/../Layout/header.php");
         <h1>
             Messagerie
         </h1>
-        <?php if (isset($discussionsList) && (count($discussionsList) > 0)) : ?>
+        <?php if (isset($discussionsList) && (count($discussionsList) > 0) && isset($user)) : ?>
             <?php foreach ($discussionsList as $discussion) : ?>
                 <a href="./index.php?page=messagerie&utilisateur_id=<?= $discussion->getTargetUser()->getId() ?>" class="messaging_contact_wrapper">
 
