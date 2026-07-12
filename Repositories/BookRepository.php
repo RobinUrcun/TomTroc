@@ -199,4 +199,30 @@ class BookRepository
 
         return $books;
     }
+
+    public function getUserBookList(int $userId): array
+    {
+        $stmt = $this->pdo->prepare("SELECT * from books WHERE user_id=:user_id;");
+
+        $stmt->execute([":user_id" => $userId]);
+
+        $results = $stmt->fetchAll();
+
+        $books = [];
+
+        foreach ($results as $book) {
+            $userBook = new Book();
+            $userBook->setId($book["id"]);
+            $userBook->setTitle($book["title"]);
+            $userBook->setAuthor($book["author"]);
+            $userBook->setComment($book["comment"]);
+            $userBook->setDisponibility($book["disponibility"]);
+            $userBook->setImageFileName($book["image_file_name"]);
+            $userBook->setCreatedAt(new DateTime($book["created_at"]));
+
+            $books[] = $userBook;
+        }
+
+        return $books;
+    }
 }
