@@ -9,7 +9,7 @@ require_once(__DIR__ . "../../Layout/header.php");
         <form class="auth_form" action="" method="POST">
             <div class="auth_input_wrapper">
                 <label for="mail">Adresse email</label>
-                <input value="<?= $previousMail ?? null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                <input value="<?= isset($previousMail) ? htmlspecialchars($previousMail) : null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
                 <div class="auth_input_error_message">
                     <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                 </div>

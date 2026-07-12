@@ -37,7 +37,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="title">Titre</label>
-                    <input value="<?= isset($previousTitle) ? $previousTitle : (isset($book) ? $book->getTitle() : null) ?>" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" />
+                    <input value="<?= isset($previousTitle) ? htmlspecialchars($previousTitle) : (isset($book) ? htmlspecialchars($book->getTitle()) : null) ?>" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" />
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->titleErrorMessage : null  ?>
                     </div>
@@ -45,7 +45,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="author">Auteur</label>
-                    <input value="<?= isset($previousAuthor) ? $previousAuthor : (isset($book) ? $book->getAuthor() : null) ?>" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" />
+                    <input value="<?= isset($previousAuthor) ? htmlspecialchars($previousAuthor) : (isset($book) ? htmlspecialchars($book->getAuthor()) : null) ?>" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" />
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->authorErrorMessage : null  ?>
                     </div>
@@ -53,7 +53,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="comment">Commentaire</label>
-                    <textarea id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? $previousComment : (isset($book) ? $book->getComment() : "") ?></textarea>
+                    <textarea id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? htmlspecialchars($previousComment) : (isset($book) ? htmlspecialchars($book->getComment()) : "") ?></textarea>
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->commentErrorMessage : null  ?>
                     </div>

@@ -8,12 +8,12 @@ include_once(__DIR__ . "/../Layout/header.php");
 
     </div>
     <div class="book_section_content_wrapper">
-        <h1><?= isset($book) ? $book->getTitle() : "" ?></h1>
-        <p class="book_section_author">par <?= isset($book) ? $book->getAuthor() : "" ?></p>
+        <h1><?= isset($book) ? htmlspecialchars($book->getTitle()) : "" ?></h1>
+        <p class="book_section_author">par <?= isset($book) ? htmlspecialchars($book->getAuthor()) : "" ?></p>
         <div class="book_section_separator"></div>
         <h2>DESCRIPTION</h2>
         <p class="book_section_description">
-            <?= isset($book) ? $book->getComment() : "" ?>
+            <?= isset($book) ? htmlspecialchars($book->getComment()) : "" ?>
         </p>
         <h2>PROPRIÉTAIRE</h2>
 
@@ -21,7 +21,7 @@ include_once(__DIR__ . "/../Layout/header.php");
             <div class="book_section_user_avatar">
                 <img src="./Public/Uploads/Avatars/<?= isset($book) ? $book->getUser()->getAvatarFileName() : "" ?>" alt="">
             </div>
-            <div class="book_section_user_pseudo"><?= isset($book) ? $book->getUser()->getPseudo() : "" ?></div>
+            <div class="book_section_user_pseudo"><?= isset($book) ? htmlspecialchars($book->getUser()->getPseudo()) : "" ?></div>
         </a>
 
         <a class="book_section_button main_button" href="./index.php?page=messagerie&utilisateur_id=<?= isset($book) ? $book->getUser()->getId() : "" ?>">Envoyer un message</a>

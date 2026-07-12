@@ -11,7 +11,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
         <div class="separator"></div>
         <div class="user_account_section_user_info_wrapper">
-            <p class="pseudo"><?= isset($user_account) ? $user_account->getPseudo() : "" ?></p>
+            <p class="pseudo"><?= isset($user_account) ? htmlspecialchars($user_account->getPseudo()) : "" ?></p>
             <p class="user_registered_since">
                 Membre depuis 1 an
             </p>
@@ -49,13 +49,13 @@ include_once(__DIR__ . "/../Layout/header.php");
                         <img class="image" src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
                     </div>
                     <div class="array_row_box">
-                        <p class="title"><?= $book->getTitle() ?></p>
+                        <p class="title"><?= htmlspecialchars($book->getTitle()) ?></p>
                     </div>
                     <div class="array_row_box">
-                        <p class="author"><?= $book->getAuthor() ?></p>
+                        <p class="author"><?= htmlspecialchars($book->getAuthor()) ?></p>
                     </div>
                     <div class="array_row_box comment">
-                        <p><?= $book->getComment() ?></p>
+                        <p><?= htmlspecialchars($book->getComment()) ?></p>
                     </div>
                 </a>
             <?php endforeach; ?>

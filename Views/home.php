@@ -33,9 +33,9 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <a href="./index.php?page=livre&id=<?= $book->getId() ?>" class="card">
                     <img src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
                     <div class="card_content">
-                        <h2 class="card_title"><?= $book->getTitle() ?></h2>
-                        <p class="card_author"><?= $book->getAuthor() ?></p>
-                        <p class="card_sold_by"><?= $book->getUser()->getPseudo() ?></p>
+                        <h2 class="card_title"><?= htmlspecialchars($book->getTitle()) ?></h2>
+                        <p class="card_author"><?= htmlspecialchars($book->getAuthor()) ?></p>
+                        <p class="card_sold_by"><?= htmlspecialchars($book->getUser()->getPseudo()) ?></p>
                     </div>
                 </a>
             <?php endforeach;  ?>

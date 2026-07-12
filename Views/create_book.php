@@ -31,7 +31,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="title">Titre</label>
-                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" value="<?= isset($previousTitle) ? $previousTitle : "" ?>" />
+                    <input placeholder="The Kinkfolk Table" id="title" name="title" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'error' : ''  ?>" value="<?= isset($previousTitle) ? htmlspecialchars($previousTitle) : "" ?>" />
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isTitleError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->titleErrorMessage : null  ?>
                     </div>
@@ -39,7 +39,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
                 <div class="auth_input_wrapper">
                     <label for="author">Auteur</label>
-                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" value="<?= isset($previousAuthor) ? $previousAuthor : "" ?>" />
+                    <input placeholder="Nathan Williams" id="author" name="author" type="text" class="<?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'error' : ''  ?>" value="<?= isset($previousAuthor) ? htmlspecialchars($previousAuthor) : "" ?>" />
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isAuthorError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->authorErrorMessage : null  ?>
                     </div>
@@ -51,7 +51,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
 Chaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers. 
 
-'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? $previousComment : "" ?></textarea>
+'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes." id="comment" name="comment" class="<?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'error' : ''  ?>"><?= isset($previousComment) ? htmlspecialchars($previousComment) : "" ?></textarea>
                     <div class="auth_input_error_message <?= isset($bookErrorManager) && $bookErrorManager->isCommentError ? 'active' : ''  ?>">
                         <?= isset($bookErrorManager) ? $bookErrorManager->commentErrorMessage : null  ?>
                     </div>

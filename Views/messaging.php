@@ -26,11 +26,11 @@ include_once(__DIR__ . "/../Layout/header.php");
                     </div>
                     <div class="messaging_contact_content">
                         <div class="messaging_contact_content_header">
-                            <div class="messaging_contact_content_username"><?= $discussion->getTargetUser()->getPseudo() ?></div>
+                            <div class="messaging_contact_content_username"><?= htmlspecialchars($discussion->getTargetUser()->getPseudo()) ?></div>
                             <div class="messaging_contact_content_last_message"><?= $discussion->getLastMessage()->getSendAt()->format("h:i") ?></div>
                         </div>
                         <div class="messaging_contact_content_preview">
-                            <?= $discussion->getLastMessage()->getContent() ?>
+                            <?= htmlspecialchars($discussion->getLastMessage()->getContent()) ?>
                         </div>
                     </div>
                 </a>
@@ -45,7 +45,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <div class="messaging_contact_avatar">
                     <img src="./Public/Uploads/Avatars/<?= $target_user->getAvatarFileName() ?>" alt="">
                 </div>
-                <h2><?= $target_user->getPseudo() ?></h2>
+                <h2><?= htmlspecialchars($target_user->getPseudo()) ?></h2>
             </div>
             <div id="messagesWrapper" class="messaging_content_messages">
                 <?php if (isset($message_list)) :  ?>
@@ -68,7 +68,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                                         </div>
                                     </div>
                                     <div class="message_content">
-                                        <?= $message->getContent(); ?>
+                                        <?= htmlspecialchars($message->getContent()); ?>
                                     </div>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
             <div class="separator"></div>
             <div class="account_section_user_info_wrapper">
-                <p class="pseudo"><?= isset($user) ? $user->getPseudo() : "" ?></p>
+                <p class="pseudo"><?= isset($user) ? htmlspecialchars($user->getPseudo()) : "" ?></p>
                 <p class="user_registered_since">
                     Membre depuis 1 an
                 </p>
@@ -43,7 +43,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                 <h2 class="account_section_subtitle">Vos informations personnelles</h2>
                 <div class="auth_input_wrapper">
                     <label for="mail">Adresse email</label>
-                    <input value="<?= isset($user) ? $user->getMail() : null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
+                    <input value="<?= isset($user) ? htmlspecialchars($user->getMail()) : null ?>" id="mail" name="mail" type="email" class="<?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'error' : ''  ?>" />
                     <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isMailError ? 'active' : ''  ?>">
                         <?= isset($accountErrorManager) ? $accountErrorManager->mailErrorMessage : null  ?>
                     </div>
@@ -61,7 +61,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                 </div>
                 <div class="auth_input_wrapper">
                     <label for="pseudo">Pseudo</label>
-                    <input id="pseudo" name="pseudo" class="<?= isset($accountErrorManager) && $accountErrorManager->isPseudoError ? 'error' : ''  ?>" value="<?= isset($user) ? $user->getPseudo() : null ?>" />
+                    <input id="pseudo" name="pseudo" class="<?= isset($accountErrorManager) && $accountErrorManager->isPseudoError ? 'error' : ''  ?>" value="<?= isset($user) ? htmlspecialchars($user->getPseudo()) : null ?>" />
                     <div class="auth_input_error_message <?= isset($accountErrorManager) && $accountErrorManager->isPseudoError ? 'active' : ''  ?>">
                         <?= isset($accountErrorManager) ? $accountErrorManager->pseudoErrorMessage : null  ?>
                     </div>
@@ -101,13 +101,13 @@ include_once(__DIR__ . "/../Layout/header.php");
                         <img class="image" src="./Public/Uploads/Books/<?= $book->getImageFileName() ?>" alt="">
                     </div>
                     <div class="array_row_box">
-                        <p class="title"><?= $book->getTitle() ?></p>
+                        <p class="title"><?= htmlspecialchars($book->getTitle()) ?></p>
                     </div>
                     <div class="array_row_box">
-                        <p class="author"><?= $book->getAuthor() ?></p>
+                        <p class="author"><?= htmlspecialchars($book->getAuthor()) ?></p>
                     </div>
                     <div class="array_row_box">
-                        <p><?= $book->getComment() ?></p>
+                        <p><?= htmlspecialchars($book->getComment()) ?></p>
                     </div>
                     <div class="array_row_box">
                         <div class="chips <?= $book->getDisponibility() ?? "" ?>"><?= $book->getDisponibility() === "available" ? "disponible" : "non dispo." ?></div>
