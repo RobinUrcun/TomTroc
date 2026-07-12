@@ -10,6 +10,7 @@ class User
     private string $avatar_file_name;
     private array $books;
     private DateTime $created_at;
+    private int $unread_messages_count;
 
 
     public function __construct() {}
@@ -83,5 +84,15 @@ class User
     public function setCreatedAt(DateTime $created_at)
     {
         $this->created_at = $created_at;
+    }
+
+    public function getUnreadMessagesCount()
+    {
+        return $this->unread_messages_count;
+    }
+
+    public function setUnreadMessagesCount(int $unread_messages_count)
+    {
+        $this->unread_messages_count = $unread_messages_count;
     }
 }
