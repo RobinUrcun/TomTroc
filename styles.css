@@ -1554,6 +1554,7 @@ header .header_second_part a .icon {
 
 .messaging_contact_content .messaging_contact_content_preview {
   display: -webkit-box;
+  line-clamp: 1;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
