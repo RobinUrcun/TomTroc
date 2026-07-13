@@ -20,7 +20,7 @@ include_once(__DIR__ . "/../Layout/header.php");
 
             <div class="books_count_wrapper">
                 <img src="./Public/Assets/Icons/books_icon.svg" alt="">
-                <p class="books_count">4 livres</p>
+                <p class="books_count"><?= isset($user_account) ? $user_account->getCreatedBooksCount() : "" ?> livre<?= isset($user_account) && $user_account->getCreatedBooksCount() > 1 ? "s" : "" ?></p>
             </div>
 
         </div>

@@ -11,6 +11,7 @@ class User
     private array $books;
     private DateTime $created_at;
     private int $unread_messages_count;
+    private int $created_books_count;
 
 
     public function __construct() {}
@@ -94,5 +95,15 @@ class User
     public function setUnreadMessagesCount(int $unread_messages_count)
     {
         $this->unread_messages_count = $unread_messages_count;
+    }
+
+    public function getCreatedBooksCount()
+    {
+        return $this->created_books_count;
+    }
+
+    public function setCreatedBooksCount(int $created_books_count)
+    {
+        $this->created_books_count = $created_books_count;
     }
 }

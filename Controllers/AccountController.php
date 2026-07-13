@@ -16,6 +16,13 @@ class AccountController
             return;
         }
         $user = $this->user;
+
+        $bookRepository = new BookRepository();
+
+        $createdBooksCount = $bookRepository->getUserCreatedBooksCount($user->getId());
+
+        $user->setCreatedBooksCount($createdBooksCount);
+
         $title = "Page Utilisateur";
         require_once(__DIR__ . "/../Views/my_account.php");
     }
@@ -42,6 +49,12 @@ class AccountController
         if (!$user_account) {
             Redirect::to("404");
         }
+
+        $bookRepository = new BookRepository();
+
+        $createdBooksCount = $bookRepository->getUserCreatedBooksCount($user_account->getId());
+
+        $user_account->setCreatedBooksCount($createdBooksCount);
 
         $title = "Profil public";
         require_once(__DIR__ . "/../Views/user_account.php");

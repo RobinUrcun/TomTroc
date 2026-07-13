@@ -225,4 +225,17 @@ class BookRepository
 
         return $books;
     }
+
+    public function getUserCreatedBooksCount(int $userId): int
+    {
+        $stmt = $this->pdo->prepare("SELECT count(*) AS count from books WHERE user_id = :user_id");
+
+        $stmt->execute([
+            ":user_id" => $userId
+        ]);
+
+        $result = $stmt->fetch();
+
+        return $result['count'];
+    }
 }
