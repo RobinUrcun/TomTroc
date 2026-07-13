@@ -82,7 +82,8 @@ class MessagingController
         }
 
         if (!$content) {
-            Redirect::to("messagerie", ['utilisateur_id' => $target_user]);
+
+            Redirect::to("messagerie", ['utilisateur_id' => $target_user->getId()]);
             return;
         }
 
