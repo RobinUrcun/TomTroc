@@ -33,8 +33,6 @@ class MessagingController
 
         $discussionRepository =  new DiscussionRepository();
 
-        $discussionsList = $discussionRepository->getDiscussionListPreview($user->getId());
-
         $target_user = $userRepository->getById($target_user_id);
 
         if (!$target_user) {
@@ -43,15 +41,20 @@ class MessagingController
             return;
         }
 
-        $discussionRepository =  new DiscussionRepository();
-
         $discussion = $discussionRepository->getDiscussion($user->getId(), $target_user->getId());
 
         if ($discussion) {
             $messageRepository = new MessageRepository();
 
-            $message_list = $messageRepository->getMessagesByDiscussionId($discussion->getId());
+            $message_list = $messageRepository->getMessagesByDiscussionId($discussion->getId(), $user->getId());
+
+            $unreadMessagesCount = $messageRepository->getUnreadMessagesCount($user->getId());
+
+            $user->setUnreadMessagesCount($unreadMessagesCount);
         }
+
+        $discussionsList = $discussionRepository->getDiscussionListPreview($user->getId());
+
 
         require_once("./Views/messaging.php");
     }
@@ -111,14 +114,12 @@ class MessagingController
 
         try {
             $messageRepository->create($content, $user->getId(), $discussion->getId());
-
-            $message_list = $messageRepository->getMessagesByDiscussionId($discussion->getId());
         } catch (Exception $e) {
             Redirect::to("404");
             return;
         }
 
-        $message_list = $messageRepository->getMessagesByDiscussionId($discussion->getId());
+        $message_list = $messageRepository->getMessagesByDiscussionId($discussion->getId(), $user->getId());
 
         $discussionRepository =  new DiscussionRepository();
 

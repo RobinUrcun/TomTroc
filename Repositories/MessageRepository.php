@@ -30,7 +30,7 @@ class MessageRepository
         }
     }
 
-    public function getMessagesByDiscussionId(int $discussion_id): array
+    public function getMessagesByDiscussionId(int $discussion_id, int $user_id): array
     {
         $stmt = $this->pdo->prepare("SELECT * FROM messages WHERE discussion_id = :discussion_id ORDER BY send_at ASC");
 
@@ -50,6 +50,14 @@ class MessageRepository
             $message->setFromUserId($result["from_user_id"]);
             $message->setIsRead($result["is_read"]);
 
+            if ($message->getFromUserId() !== $user_id && !$message->getIsRead()) {
+                try {
+                    $this->markAsRead($message->getId());
+                    $message->setIsRead(true);
+                } catch (Exception $e) {
+                    Redirect::to("404");
+                }
+            }
             $messages_list[] = $message;
         }
 
@@ -103,5 +111,18 @@ class MessageRepository
         }
 
         return $counter;
+    }
+
+    private function markAsRead(int $message_id)
+    {
+        $stmt = $this->pdo->prepare("UPDATE messages SET is_read = 1 WHERE id = :message_id");
+
+        $result = $stmt->execute([
+            ":message_id" => $message_id
+        ]);
+
+        if (!$result) {
+            throw new Exception();
+        }
     }
 }
