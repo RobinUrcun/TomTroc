@@ -27,7 +27,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                     <div class="messaging_contact_content">
                         <div class="messaging_contact_content_header">
                             <div class="messaging_contact_content_username"><?= htmlspecialchars($discussion->getTargetUser()->getPseudo()) ?></div>
-                            <div class="messaging_contact_content_last_message"><?= $discussion->getLastMessage()->getSendAt()->format("h:i") ?></div>
+                            <div class="messaging_contact_content_last_message"><?= DateFormater::format($discussion->getLastMessage()->getSendAt()) ?></div>
                         </div>
                         <div class="messaging_contact_content_preview">
                             <?= htmlspecialchars($discussion->getLastMessage()->getContent()) ?>

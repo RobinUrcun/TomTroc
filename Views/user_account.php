@@ -13,7 +13,8 @@ include_once(__DIR__ . "/../Layout/header.php");
         <div class="user_account_section_user_info_wrapper">
             <p class="pseudo"><?= isset($user_account) ? htmlspecialchars($user_account->getPseudo()) : "" ?></p>
             <p class="user_registered_since">
-                Membre depuis 1 an
+                Membre depuis
+                <?= isset($user_account) ? DateFormater::format($user_account->getCreatedAt()) : "" ?>
             </p>
             <p class="library">bibliotheque</p>
 
