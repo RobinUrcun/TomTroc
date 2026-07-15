@@ -9,8 +9,12 @@ class HomeController
 
         $bookRepository = new BookRepository();
 
-        $lastBooks = $bookRepository->get(4);
+        try {
+            $lastBooks = $bookRepository->get(4);
+        } catch (Exception $e) {
 
+            Redirect::to("404");
+        }
         $user = AuthServices::getAuthenticatedUser();
 
         require_once('./Views/home.php');

@@ -13,7 +13,7 @@ class BookRepository
     {
         try {
             $stmt = $this->pdo->prepare("INSERT INTO books (title, author, comment, disponibility, image_file_name, user_id, created_at) VALUES (:title, :author, :comment, :disponibility, :image_file_name,:user_id, :created_at)");
-            echo "toto";
+
             $status = $stmt->execute([
                 ":title" => $title,
                 ":author" => $author,
@@ -158,46 +158,45 @@ class BookRepository
 
     public function get(?int $quantity = null): array
     {
-        $sql = "SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON books.user_id = users.id WHERE books.disponibility = 'available' ORDER BY books.created_at DESC";
+        try {
+            $sql = "SELECT books.*, users.pseudo AS user_pseudo FROM books JOIN users ON books.user_id = users.id WHERE books.disponibility = 'available' ORDER BY books.created_at DESC";
 
-        if ($quantity) {
-            $sql .= " LIMIT $quantity";
-        }
+            if ($quantity) {
+                $sql .= " LIMIT $quantity";
+            }
 
-        $stmt = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-        $stmt->execute();
+            $stmt->execute();
 
-        $results = $stmt->fetchAll();
+            $results = $stmt->fetchAll();
 
-        if (!$results) {
+            $books = [];
+
+            foreach ($results as $book) {
+                $newBook = new Book();
+
+                $newBook->setId($book["id"]);
+                $newBook->setTitle($book["title"]);
+                $newBook->setAuthor($book["author"]);
+                $newBook->setComment($book["comment"]);
+                $newBook->setDisponibility($book["disponibility"]);
+                $newBook->setImageFileName($book["image_file_name"]);
+                $newBook->setCreatedAt(new DateTime($book["created_at"]));
+
+                $user = new User();
+
+                $user->setPseudo($book["user_pseudo"]);
+
+                $newBook->setUser($user);
+
+                $books[] = $newBook;
+            }
+
+            return $books;
+        } catch (Exception $e) {
             throw new Exception();
         }
-
-        $books = [];
-
-        foreach ($results as $book) {
-            $newBook = new Book();
-
-            $newBook = new Book();
-            $newBook->setId($book["id"]);
-            $newBook->setTitle($book["title"]);
-            $newBook->setAuthor($book["author"]);
-            $newBook->setComment($book["comment"]);
-            $newBook->setDisponibility($book["disponibility"]);
-            $newBook->setImageFileName($book["image_file_name"]);
-            $newBook->setCreatedAt(new DateTime($book["created_at"]));
-
-            $user = new User();
-
-            $user->setPseudo($book["user_pseudo"]);
-
-            $newBook->setUser($user);
-
-            $books[] = $newBook;
-        }
-
-        return $books;
     }
 
     public function getUserBookList(int $userId): array
