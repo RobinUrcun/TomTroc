@@ -15,8 +15,11 @@ class FormValidation
     public static function isMailValid(?string $mail)
     {
 
+
         if (!$mail) {
             throw new Exception("Le mail est requis");
+        } elseif (!(filter_var($mail, FILTER_VALIDATE_EMAIL))) {
+            throw new Exception("L'adresse mail doit être valide");
         }
     }
 
@@ -93,7 +96,7 @@ class FormValidation
         ];
         if (!$disponibility) {
             throw new Exception("La disponibilité est requise");
-        } elseif (array_key_exists($disponibility, $disponibilityMapping)) {
+        } elseif (!in_array($disponibility, $disponibilityMapping)) {
             throw new Exception("Ce type de disponibilité n'existe pas");
         }
     }
