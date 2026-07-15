@@ -67,9 +67,7 @@ include_once(__DIR__ . "/../Layout/header.php");
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="message_content">
-                                        <?= htmlspecialchars($message->getContent()); ?>
-                                    </div>
+                                    <div class="message_content"><?= htmlspecialchars($message->getContent()); ?></div>
                                 </div>
                             </div>
                         <?php endif; ?>

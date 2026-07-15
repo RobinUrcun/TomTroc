@@ -12,9 +12,7 @@ include_once(__DIR__ . "/../Layout/header.php");
         <p class="book_section_author">par <?= isset($book) ? htmlspecialchars($book->getAuthor()) : "" ?></p>
         <div class="book_section_separator"></div>
         <h2>DESCRIPTION</h2>
-        <p class="book_section_description">
-            <?= isset($book) ? htmlspecialchars($book->getComment()) : "" ?>
-        </p>
+        <p class="book_section_description"><?= isset($book) ? htmlspecialchars($book->getComment()) : "" ?></p>
         <h2>PROPRIÉTAIRE</h2>
 
         <a href="./index.php?page=compte_utilisateur&user_id=<?= isset($book) ? $book->getUser()->getId() : "" ?>" class="book_section_user_informations">
