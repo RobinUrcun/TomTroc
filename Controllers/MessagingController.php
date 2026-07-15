@@ -22,7 +22,7 @@ class MessagingController
 
         $discussionsList = $discussionRepository->getDiscussionListPreview($user->getId());
 
-        require_once("./Views/messaging.php");
+        require_once(__DIR__ . "/../Views/messaging.php");
     }
 
     public function getMessagingWithUserPage(int $target_user_id): void
@@ -56,7 +56,7 @@ class MessagingController
         $discussionsList = $discussionRepository->getDiscussionListPreview($user->getId());
 
 
-        require_once("./Views/messaging.php");
+        require_once(__DIR__ . "/../Views/messaging.php");
     }
 
     public function sendMessage(): void
@@ -101,7 +101,7 @@ class MessagingController
 
         if ($messageErrorManager->isContentError) {
 
-            require_once("./Views/messaging.php");
+            require_once(__DIR__ . "/../Views/messaging.php");
             return;
         }
 
@@ -125,6 +125,6 @@ class MessagingController
 
         $discussionsList = $discussionRepository->getDiscussionListPreview($user->getId());
 
-        require_once("./Views/messaging.php");
+        require_once(__DIR__ . "/../Views/messaging.php");
     }
 }

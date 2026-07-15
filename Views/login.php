@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "../../Layout/header.php");
+require_once(__DIR__ . "/../Layout/header.php");
 ?>
 
 <section class="auth_section">
@@ -39,6 +39,6 @@ require_once(__DIR__ . "../../Layout/header.php");
 
 <?php
 
-require_once(__DIR__ . "../../Layout/footer.php");
+require_once(__DIR__ . "/../Layout/footer.php");
 
 ?>

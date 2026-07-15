@@ -42,7 +42,7 @@ class AuthController
             $title = "Connexion";
             $previousMail = $mail;
 
-            require_once(__DIR__ . "../../Views/login.php");
+            require_once(__DIR__ . "/../Views/login.php");
             return;
         }
 
@@ -55,7 +55,7 @@ class AuthController
             $previousMail = $mail;
             $accountErrorManager->isInvalidCredentials = true;
 
-            require_once(__DIR__ . "../../Views/login.php");
+            require_once(__DIR__ . "/../Views/login.php");
             return;
         }
 
@@ -98,7 +98,7 @@ class AuthController
             $title = "Inscription";
             $previousPseudo = $pseudo;
             $previousMail = $mail;
-            require_once(__DIR__ . "../../Views/signup.php");
+            require_once(__DIR__ . "/../Views/signup.php");
             return;
         }
 
@@ -116,7 +116,7 @@ class AuthController
             $title = "Inscription";
             $previousPseudo = $pseudo;
             $previousMail = $mail;
-            require_once(__DIR__ . "../../Views/signup.php");
+            require_once(__DIR__ . "/../Views/signup.php");
             return;
         }
 

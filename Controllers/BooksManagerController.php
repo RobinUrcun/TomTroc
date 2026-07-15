@@ -134,7 +134,7 @@ class BooksManagerController
             $previousComment = $comment;
             $previousDisponibility = $disponibility;
 
-            require_once(__DIR__ . "../../Views/create_book.php");
+            require_once(__DIR__ . "/../Views/create_book.php");
             return;
         }
 
@@ -253,7 +253,7 @@ class BooksManagerController
             $previousComment = $comment;
             $previousDisponibility = $disponibility;
 
-            require_once(__DIR__ . "../../Views/update_book.php");
+            require_once(__DIR__ . "/../Views/update_book.php");
             return;
         }
 

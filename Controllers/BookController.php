@@ -25,7 +25,7 @@ class BookController
 
 
         $title = "Nos livres à l'échange";
-        require_once("./Views/our_book.php");
+        require_once(__DIR__ . "/../Views/our_book.php");
     }
 
     public function getBookPage()
@@ -53,6 +53,6 @@ class BookController
         }
 
         $title = $book->getTitle();
-        require_once("./Views/single_book.php");
+        require_once(__DIR__ . "/../Views/single_book.php");
     }
 }

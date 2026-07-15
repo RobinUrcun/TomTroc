@@ -112,7 +112,7 @@ class AccountController
             $title = "Mon compte";
             $previousPseudo = $pseudo;
             $previousMail = $mail;
-            require_once(__DIR__ . "../../Views/my_account.php");
+            require_once(__DIR__ . "/../Views/my_account.php");
             return;
         }
 
@@ -143,7 +143,7 @@ class AccountController
             $accountErrorManager = new AccountErrorManager();
             $accountErrorManager->setFileError("Aucun fichier");
             $title = "Mon compte";
-            require_once(__DIR__ . "../../Views/my_account.php");
+            require_once(__DIR__ . "/../Views/my_account.php");
             return;
         }
 
@@ -153,7 +153,7 @@ class AccountController
             $accountErrorManager = new AccountErrorManager();
             $accountErrorManager->setFileError($e->getMessage());
             $title = "Mon compte";
-            require_once(__DIR__ . "../../Views/my_account.php");
+            require_once(__DIR__ . "/../Views/my_account.php");
             return;
         }
 
@@ -161,7 +161,7 @@ class AccountController
             $accountErrorManager = new AccountErrorManager();
             $accountErrorManager->setFileError("La taille du fichier ne doit pas exceder 5 Mo");
             $title = "Mon compte";
-            require_once(__DIR__ . "../../Views/my_account.php");
+            require_once(__DIR__ . "/../Views/my_account.php");
             return;
         }
 
@@ -175,7 +175,7 @@ class AccountController
             $accountErrorManager = new AccountErrorManager();
             $accountErrorManager->setFileError("le fichier doit etre du type png ou jpeg ou webp");
             $title = "Mon compte";
-            require_once(__DIR__ . "../../Views/my_account.php");
+            require_once(__DIR__ . "/../Views/my_account.php");
             return;
         }
 
