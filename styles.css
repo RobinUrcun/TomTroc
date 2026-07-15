@@ -473,8 +473,8 @@ header .header_second_part a .icon {
 }
 
 .single_book_section .book_section_image_wrapper {
-  max-height: 800px;
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
 
