@@ -139,6 +139,12 @@ class AccountController
 
         $user = $this->user;
 
+        $bookRepository = new BookRepository();
+
+        $createdBooksCount = $bookRepository->getUserCreatedBooksCount($user->getId());
+
+        $user->setCreatedBooksCount($createdBooksCount);
+
         if (!$file) {
             $accountErrorManager = new AccountErrorManager();
             $accountErrorManager->setFileError("Aucun fichier");
