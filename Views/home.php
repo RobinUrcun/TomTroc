@@ -39,7 +39,9 @@ include_once(__DIR__ . "/../Layout/header.php");
                     </div>
                 </a>
             <?php endforeach;  ?>
-
+        <?php else : ?>
+            <p class="no_books_avalaible"> Aucuns livres disponibles
+            </p>
         <?php endif; ?>
     </div>
     <a href="index.php?page=nos_livres" class="main_button">
