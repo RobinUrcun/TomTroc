@@ -136,6 +136,18 @@ class Router
 
                 $authController = new AuthController();
                 $authController->logout();
+                break;
+
+
+            case "404":
+                $errorController = new ErrorController();
+                $errorController->getErrorPage();
+                break;
+
+            default:
+                $errorController = new ErrorController();
+                $errorController->getErrorPage();
+                break;
         }
     }
 }

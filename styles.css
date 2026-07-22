@@ -1725,6 +1725,35 @@ header .header_second_part a .icon {
   color: #a6a6a6;
 }
 
+/* PAGE 404 */
+
+.error_section {
+  min-height: calc(100vh - 165px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #00ac66;
+}
+
+.error_section h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 70px;
+  margin: 0;
+}
+
+.error_section h2 {
+  font-family: "Inter", sans-serif;
+}
+
+.error_section p {
+  margin-bottom: 50px;
+  font-family: "Inter", sans-serif;
+  color: grey;
+}
+
 /* FOOTER */
 
 .footer {
