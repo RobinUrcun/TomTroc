@@ -17,6 +17,6 @@ class HomeController
         }
         $user = AuthServices::getAuthenticatedUser();
 
-        require_once('./Views/home.php');
+        require_once(__DIR__ . '/../Views/home.php');
     }
 }
